@@ -2,4 +2,4 @@
 Dépôt support pour les cours de Bloc 1, Bloc 2 et Bloc 3.
 
 - [Bloc 3 - Cybersécurité](cs1/README.md)
-- [Bloc 1 - Bases de la programmation (Java)]()
+- Bloc 1 - Bases de la programmation (Java)
