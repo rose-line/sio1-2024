@@ -67,7 +67,7 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 - sélectionnez `java11-junit5`
 - sélectionnez la dernière version disponible
 - pour le nom du *package*, la convention généralement utilisée est de mettre le nom de domaine *inversé* de l'organisation (par exemple : `fr.dampierre`)
-- pour l'*artifact*, tapez le nom de votre projet (par exemple `java-intro`)
+- pour l'*artifact*, tapez le nom de votre projet (par exemple `introjava`)
 - le système ouvre une fenêtre pour vous laisser choisir le répertoire dans lequel sera stocké votre nouveau projet
 - parcourez l'arborescence pour localiser votre répertoire de projets Java (par exemple, vous pourriez avoir un répertoire `Java` sur votre bureau Windows)
 - **Attention** : ne créez pas un répertoire spécifique pour le nouveau projet (Maven va le faire pour vous) ; indiquez juste votre répertoire de projets Java
@@ -78,6 +78,9 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 - le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
 - Indiquez que vous « faites confiance » aux auteurs des fichiers ouverts (il peut être prudent de ne pas « faire confiance » à du code quelconque téléchargé sur Internet : cela vous permettra d'examiner le programme sans pouvoir l'exécuter, car il pourrait contenir du code malicieux)
 - laissez toujours quelques secondes à VS Code pour charger le projet en arrière-plan
+- **par la suite, lorsque vous ouvrirez de nouveau un projet existant (`File / Open Folder...`), veillez à toujours bien sélectionner le répertoire contenant le projet, et non pas un répertoire plus haut ou bien un répertoire plus bas** ; il faut toujours qu'un projet Java ouvert indique une architecture de répertoire comme ceci sur le panneau `Explorer` :
+
+![architecture_repertoires_java](assets/architecture_repertoires_java.png)
 
 ### Ça ne fonctionne pas ?
 
