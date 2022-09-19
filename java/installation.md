@@ -57,7 +57,7 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 ## Créer un projet Java
 
 - une fois reconnecté, ouvrez VS Code
-- tapez`Ctrl+Shift+P` (`Shift` = `Maj` = touche avec une flèche au-dessus de `Ctrl`)
+- appuyez sur `F1` (il se peut que vous deviez utiliser conjointement la touche `Fn` de votre laptop)
 - la **palette de commande** s'ouvre : c'est un outil très utile sous VS Code qui permet d'accéder à toutes les fonctionnalités par simple recherche
 - tapez `java`
 - localisez et lancez `Create Java Project` dans la liste qui s'affiche
@@ -67,17 +67,17 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 - sélectionnez `java11-junit5`
 - sélectionnez la dernière version disponible
 - pour le nom du *package*, la convention généralement utilisée est de mettre le nom de domaine *inversé* de l'organisation (par exemple : `fr.dampierre`)
-- pour l'*artifact*, tapez le nom de votre projet (par exemple `introjava`)
+- pour l'*artifact*, il s'agit du nom de votre projet (par exemple `introjava`)
 - le système ouvre une fenêtre pour vous laisser choisir le répertoire dans lequel sera stocké votre nouveau projet
 - parcourez l'arborescence pour localiser votre répertoire de projets Java (par exemple, vous pourriez avoir un répertoire `Java` sur votre bureau Windows)
-- **Attention** : ne créez pas un répertoire spécifique pour le nouveau projet (Maven va le faire pour vous) ; indiquez juste votre répertoire de projets Java
+- **Attention** : ne créez pas un répertoire spécifique pour le nouveau projet (ce sera fait automatiquement) ; indiquez juste votre répertoire de projets Java
 - la suite se passe dans le terminal qui s'ouvre dans la partie inférieure de VS Code ; la création de projet est lancée
-- la première fois, le gestionnaire de dépendances **Maven** va faire quelques téléchargements : une connexion internet est donc nécessaire pour cette phase
-- au bout d'un moment, le processus va se stopper pour vous laisser indiquer le numéro de version de base de votre programme : laissé le numéro proposé (1.0-SNAPSHOT) et appuyez sur `Entrée` (il faudra peut-être donner le focus au terminal en cliquant dessus avant)
-- confirmez le résumé donné avec `Entrée`
-- le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
-- Indiquez que vous « faites confiance » aux auteurs des fichiers ouverts (il peut être prudent de ne pas « faire confiance » à du code quelconque téléchargé sur Internet : cela vous permettra d'examiner le programme sans pouvoir l'exécuter, car il pourrait contenir du code malicieux)
-- laissez toujours quelques secondes à VS Code pour charger le projet en arrière-plan
+- la première fois, le gestionnaire de dépendances Maven va faire quelques téléchargements : une connexion internet est donc nécessaire pour cette phase
+- au bout d'un moment, le processus va se stopper pour vous laisser indiquer le numéro de version de base de votre programme : laissé le numéro proposé (`1.0-SNAPSHOT`) en appuyant sur `Entrée` (il faudra peut-être donner le focus au terminal en cliquant dessus auparavant)
+- confirmez le résumé des informations données avec `Entrée`
+- le projet est créé ; cliquez sur `Open` dans la pop-up qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
+- Indiquez que vous « faites confiance » aux auteurs de des fichiers (il peut être prudent de ne pas « faire confiance » à du code quelconque téléchargé sur Internet : cela vous permettra d'examiner le programme sans pouvoir l'exécuter, car il pourrait contenir du code malicieux)
+- laissez toujours quelques secondes à VS Code pour charger le projet en arrière-plan (la pop-up en bas à droite doit se fermer)
 - **par la suite, lorsque vous ouvrirez de nouveau un projet existant (`File / Open Folder...`), veillez à toujours bien sélectionner le répertoire contenant le projet, et non pas un répertoire plus haut ou bien un répertoire plus bas** ; il faut toujours qu'un projet Java ouvert indique une architecture de répertoire comme ceci sur le panneau `Explorer` :
 
 ![architecture_repertoires_java](assets/architecture_repertoires_java.png)
@@ -92,18 +92,45 @@ Notez bien que le répertoire `src`, par exemple, se trouve un niveau au-dessous
 
 ![architecture_repertoires_mauvais_2](assets/architecture_repertoires_mauvais2.png)
 
-### Ça ne fonctionne pas ?
-
-- Vérifiez votre accès Internet
-- Vérifiez que vous vous êtes bien déconnecté/reconnecté après l'installation de VS Code
-- Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter)
-- Vérifiez que votre `PATH` contient également le chemin vers ce même JDK (sinon, l'ajouter)
-- Vérifiez que vous n'avez pas d'anciens `JAVA_HOME` ou des répertoires dans les variables `PATH` qui pointeraient vers des répertoires inexistants ou d'anciens JDK, supposés désinstallés ; normalement, vous devriez avoir :
-  - une variable `JAVA_HOME` dans les variables d'environnement utilisateur
-  - le répertoire pointant vers votre JDK fraîchement installé dans la variable d'environnement utilisateur `PATH`
-
 ## Lancement du programme
 
 - Le programme se lance avec l'appui sur la touche `F5` du clavier (il se peut que vous deviez utiliser conjointement la touche `Fn` de votre laptop)
 - Au premier lancement, le parefeu de Windows vous demandera à quels réseaux doit avoir accès VS Code ; cochez les réseaux privés, mais pas les réseaux publics
 - Notez que le programme, tel qu'il est construit ici, ne fait absolument rien ; vérifiez juste que vous n'avez pas d'erreurs affichées dans le terminal
+
+## Configuration supplémentaire utile
+
+Deux petits paramètres pratiques à activer pour vous permettre d'enregistrer votre code automatiquement et d'avoir toujours un code bien formaté :
+
+- Ouvrez les paramètres VS Code (`Ctrl+,`)
+- Recherchez *save*
+- Localisez *Auto Save* et sélectionnez *onFocusChange* dans la liste déroulante : dorénavant, votre code sera automatiquement sauvegardé dès que la fenêtre d'édition perd le focus (changement de fichier, clic ailleurs...)
+- Localisez et cochez *Format on Save* : dorénavant, votre code sera automatiquement formaté (indentation, etc.) à chaque sauvegarde 
+
+## Ça ne fonctionne pas ?
+
+- La création de projet Maven échoue : vérifiez votre accès Internet
+- Les commandes Java ne fonctionnent pas : vérifiez que vous vous êtes bien déconnecté/reconnecté après l'installation de VS Code ou après toute modification de vos variables d'environnement
+- Le programme ne se lance pas :
+  - avez-vous des erreurs de compilation (du rouge) ?
+  - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ?
+  - avez-vous les variables d'environnement `JAVA_HOME` et `PATH` correctement spécifiées (voir ci-dessous) ?
+- Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\`
+- Vérifiez que votre variable utilisateur `PATH` contient le chemin vers le sous-répertoire `bin` du JDK (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\bin` dans la liste des répertoires du `PATH`
+- Vérifiez que vous n'avez pas d'anciens `JAVA_HOME` ou des répertoires dans les variables `PATH` qui pointeraient vers des répertoires inexistants ou d'anciens JDK, supposés désinstallés ; normalement, vous devriez avoir :
+  - une variable `JAVA_HOME` dans les variables d'environnement utilisateur (ou bien système)
+  - le répertoire pointant vers votre JDK fraîchement installé dans la variable d'environnement utilisateur `PATH` (ou bien système)
+- N'oubliez pas de vous déconnecter/reconnecter après chaque modification
+- Pour les erreurs ci-dessous, faites : `F1` / `Clean Java Language Server Wokspace` puis redémarrez VS Code comme proposé (*Restart and delete*)
+  - les erreurs de code ne sont pas soulignées ;
+  - au contraire il trouve des erreurs là où il n'y en a pas ;
+  - au lancement, il vous dit : `Could not find or load main class` ;
+  - potentiellement à essayer pour d'autres problèmes inexpliqués (ça ne peut pas faire de mal de toute façon !)
+- Les erreurs persistent ? Utilisons les fichiers de *logs* pour en savoir plus :
+  - dans les paramètres, recherchez `java.trace.server` et positionnez l'option sur `verbose`
+  - si c'est l'extension Java qui ne se lance pas correctement, examinez les logs `vscode-java` :
+    - `F1` / `Toggle Developer Tools`
+    - Ouvrez le panneau `Console` dans la fenêtre qui s'affiche
+  - vous pouvez aussi examiner les logs du serveur de langage Java et les logs de l'extension Java :
+    - `F1` / `Java: Open Java Language Server log file`
+    - `F1` / `Java: Open Java Extension log file`
