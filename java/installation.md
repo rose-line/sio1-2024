@@ -114,6 +114,8 @@ Deux petits paramètres pratiques à activer pour vous permettre d'enregistrer v
 - Le programme ne se lance pas :
   - avez-vous des erreurs de compilation (du rouge) ?
   - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ?
+  - essayez `F1` / `Java: Force Java Compilation` (indiquez `Full` ensuite)
+  - essayez de relancer VS Code (`F1` / `Reload Window`)
   - avez-vous les variables d'environnement `JAVA_HOME` et `PATH` correctement spécifiées (voir ci-dessous) ?
 - Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\`
 - Vérifiez que votre variable utilisateur `PATH` contient le chemin vers le sous-répertoire `bin` du JDK (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\bin` dans la liste des répertoires du `PATH`
