@@ -82,6 +82,16 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 
 ![architecture_repertoires_java](assets/architecture_repertoires_java.png)
 
+Notez bien que le répertoire `src`, par exemple, se trouve un niveau au-dessous du projet ouvert. Les deux exemples qui suivent indiquent une ouverture d'un répertoire non-conforme et poseront des problèmes :
+
+- Un cran trop haut :
+
+![architecture_repertoires_mauvais_1](assets/architecture_repertoires_mauvais1.png)
+
+- Un cran trop bas :
+
+![architecture_repertoires_mauvais_2](assets/architecture_repertoires_mauvais2.png)
+
 ### Ça ne fonctionne pas ?
 
 - Vérifiez votre accès Internet
