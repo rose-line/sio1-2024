@@ -13,20 +13,20 @@ Pour éviter d'avoir des problèmes de compatibilité, il faut auparavant désin
 ### Suppression des JDK
 
 - rendez-vous dans les paramètres de Windows
-- Apps
+- *Applications*
 - recherchez « jdk » dans la liste de programmes installés
 - supprimez tous les jdk trouvés
 
 ### Suppression des entrées dans les variables d'environnement
 
-La variable d'environnement PATH sur votre système contient un ensemble de répertoires qui sont parcourus lorsque le système tente de localiser un programme. Il se peut que les JDK désinstallés aient posé des entrées dans cette variable qui n'ont pas été supprimées. Il est important de les supprimer pour éviter tout problème d'incompatibilité par la suite. On va donc vérifier manuellement :
+La variable d'environnement PATH sur votre système contient un ensemble de répertoires qui sont parcourus lorsque le système tente de localiser un programme. Il se peut que les JDK désinstallés aient posé des entrées dans cette variable qui n'ont pas été supprimées. Il est important de les supprimer pour éviter tout problème d'incompatibilité par la suite. Il est tout à fait possible et même probable que vous ne trouviez rien à supprimer du tout. Il faut quand même vérifier :
 
 - rendez-vous dans les paramètres de Windows
-- dans la recherche de paramètres, tapez « environ », localisez et ouvrez la fenêtre d'édition des variables d'environnement
+- dans la recherche de paramètres, tapez « environ », localisez et ouvrez la fenêtre de consultation des variables d'environnement
 - dans la liste des entrées « **variables utilisateur** » :
   - **ATTENTION : dans ce qui suit, ne supprimez surtout pas l'ensemble de la variable PATH**
   - localisez la variable PATH (si elle existe)
-  - éditez-la (bouton) ; une liste de chemin s'affiche
+  - modifiez-la (bouton) ; une liste de chemin s'affiche
   - vérifiez dans la liste des chemins si certains contiennent une référence à un JDK (ils contiendront la chaîne de caractères « jdk »)
   - supprimez-les tous le cas échéant
 - toujours dans la liste des entrées « variables utilisateur » :
@@ -42,7 +42,7 @@ Par exemple, sur le système suivant, ces trois entrées doivent être considér
 
 Le système est maintenant prêt à accueillir un nouveau JDK.
 
-## Visual Studio Code
+## Visual Studio Code (VS Code)
 
 Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend tout ce dont on a besoin. Téléchargez et installez l'application suivante :
 
@@ -50,9 +50,13 @@ Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend 
 - [pour macOS](https://aka.ms/vscode-java-installer-mac)
 - sous Linux, il faut faire l'installation « manuellement » (JDK + VS Code + extensions Java pour VS Code)
 
+Pour terminer l'installation, il faut se **déconnecter du système et se reconnecter** (le redémarrage complet de la machine n'est cependant pas nécessaire).
+
+NB : à la première ouverture de VS Code, on vous propose l'installation d'un pack linguistique pour le français. Il est déconseillé d'installer ce pack : l'utilisation d'un IDE en anglais vous apprendra les termes que vous retrouverez plus tard dans la documentation en anglais. Dans le cas général, en informatique, on doit être à l'aise avec la lecture de sources de documentation en anglais et avec les logiciels en anglais, sans traduction automatique. Travailler directement en anglais vous épargnera de nombreux problèmes et vous facilitera globalement votre futur métier.
+
 ## Créer un projet Java
 
-- ouvrez VS Code
+- une fois reconnecté, ouvrez VS Code
 - tapez`Ctrl+Shift+P` (`Shift` = `Maj` = touche avec une flèche au-dessus de `Ctrl`)
 - la **palette de commande** s'ouvre : c'est un outil très utile sous VS Code qui permet d'accéder à toutes les fonctionnalités par simple recherche
 - tapez `java`
@@ -70,12 +74,23 @@ Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend 
 - la suite se passe dans le terminal qui s'ouvre dans la partie inférieure de VS Code ; la création de projet est lancée
 - la première fois, le gestionnaire de dépendances **Maven** va faire quelques téléchargements : une connexion internet est donc nécessaire pour cette phase
 - au bout d'un moment, le processus va se stopper pour vous laisser indiquer le numéro de version de base de votre programme : laissé le numéro proposé (1.0-SNAPSHOT) et appuyez sur `Entrée` (il faudra peut-être donner le focus au terminal en cliquant dessus avant)
-- confirmez le résumé donné avec `Y`
-- Le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
+- confirmez le résumé donné avec `Entrée`
+- le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
+- Indiquez que vous « faites confiance » aux auteurs des fichiers ouverts (il peut être prudent de ne pas « faire confiance » à du code quelconque téléchargé sur Internet : cela vous permettra d'examiner le programme sans pouvoir l'exécuter, car il pourrait contenir du code malicieux)
+- laissez toujours quelques secondes à VS Code pour charger le projet en arrière-plan
 
 ### Ça ne fonctionne pas ?
 
 - Vérifiez votre accès Internet
+- Vérifiez que vous vous êtes bien déconnecté/reconnecté après l'installation de VS Code
 - Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter)
 - Vérifiez que votre `PATH` contient également le chemin vers ce même JDK (sinon, l'ajouter)
+- Vérifiez que vous n'avez pas d'anciens `JAVA_HOME` ou des répertoires dans les variables `PATH` qui pointeraient vers des répertoires inexistants ou d'anciens JDK, supposés désinstallés ; normalement, vous devriez avoir :
+  - une variable `JAVA_HOME` dans les variables d'environnement utilisateur
+  - le répertoire pointant vers votre JDK fraîchement installé dans la variable d'environnement utilisateur `PATH`
 
+## Lancement du programme
+
+- Le programme se lance avec l'appui sur la touche `F5` du clavier (il se peut que vous deviez utiliser conjointement la touche `Fn` de votre laptop)
+- Au premier lancement, le parefeu de Windows vous demandera à quels réseaux doit avoir accès VS Code ; cochez les réseaux privés, mais pas les réseaux publics
+- Notez que le programme, tel qu'il est construit ici, ne fait absolument rien ; vérifiez juste que vous n'avez pas d'erreurs affichées dans le terminal
