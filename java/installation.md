@@ -73,3 +73,9 @@ Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend 
 - confirmez le résumé donné avec `Y`
 - Le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
 
+### Ça ne fonctionne pas ?
+
+- Vérifiez votre accès Internet
+- Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter)
+- Vérifiez que votre `PATH` contient également le chemin vers ce même JDK (sinon, l'ajouter)
+
