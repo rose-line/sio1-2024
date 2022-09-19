@@ -2,9 +2,11 @@
 
 Pour développer en Java, vous aurez besoin de :
 
-- un Environnement de Dévelopement Intégré (IDE) ; nous utiliserons Visual Studio Code
+- un Environnement de Dévelopement Intégré (IDE) ; nous utiliserons **Visual Studio Code**
 - Java Development Kit (JDK)
 - ensemble d'outils Java pour l'IDE
+
+**N'installez pas tout cela immédiatement.**
 
 ## Préparation
 
@@ -15,28 +17,28 @@ Pour éviter d'avoir des problèmes de compatibilité, il faut auparavant désin
 - rendez-vous dans les paramètres de Windows
 - *Applications*
 - recherchez « jdk » dans la liste de programmes installés
-- supprimez tous les jdk trouvés
+- supprimez tous les JDK trouvés
 
 ### Suppression des entrées dans les variables d'environnement
 
-La variable d'environnement PATH sur votre système contient un ensemble de répertoires qui sont parcourus lorsque le système tente de localiser un programme. Il se peut que les JDK désinstallés aient posé des entrées dans cette variable qui n'ont pas été supprimées. Il est important de les supprimer pour éviter tout problème d'incompatibilité par la suite. Il est tout à fait possible et même probable que vous ne trouviez rien à supprimer du tout. Il faut quand même vérifier :
+La variable d'environnement `PATH` sur votre système contient un ensemble de répertoires qui sont parcourus lorsque le système tente de localiser un programme. Il se peut que les JDK désinstallés aient posé des entrées dans cette variable `PATH` qui n'ont pas été supprimées. Il est important de les supprimer pour éviter tout problème d'incompatibilité par la suite. Il est tout à fait possible et même probable que vous ne trouviez rien à supprimer du tout. Il faut quand même vérifier :
 
 - rendez-vous dans les paramètres de Windows
-- dans la recherche de paramètres, tapez « environ », localisez et ouvrez la fenêtre de consultation des variables d'environnement
-- dans la liste des entrées « **variables utilisateur** » :
+- dans la recherche de paramètres, tapez « environ », localisez et ouvrez la fenêtre de consultation des *variables d'environnement*
+- dans la liste des entrées « *variables utilisateur* » :
   - **ATTENTION : dans ce qui suit, ne supprimez surtout pas l'ensemble de la variable PATH**
-  - localisez la variable PATH (si elle existe)
+  - localisez la variable `PATH` (si elle existe)
   - modifiez-la (bouton) ; une liste de chemin s'affiche
   - vérifiez dans la liste des chemins si certains contiennent une référence à un JDK (ils contiendront la chaîne de caractères « jdk »)
   - supprimez-les tous le cas échéant
 - toujours dans la liste des entrées « variables utilisateur » :
-  - localisez la variable JAVA_HOME (si elle existe)
+  - localisez la variable `JAVA_HOME` (si elle existe)
   - supprimez la variable complètement
-- dans la liste des entrées « **variables système** » :
-  - répétez le processus précédent pour les chemins contenus dans la variable PATH
-  - répétez le processus précédent pour la variable JAVA_HOME (si elle existe)
+- dans la liste des entrées « *variables système* » :
+  - répétez le processus précédent pour les chemins contenus dans la variable `PATH`
+  - répétez le processus précédent pour la variable `JAVA_HOME` (si elle existe)
 
-Par exemple, sur le système suivant, ces trois entrées doivent être considérées :
+Par exemple, sur le système suivant, ces trois entrées doivent être considérées et modifiées avant installation :
 
 ![variables d'environnement](assets/variables_environnement_java.png)
 
@@ -52,7 +54,7 @@ Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend 
 
 Pour terminer l'installation, il faut se **déconnecter du système et se reconnecter** (le redémarrage complet de la machine n'est cependant pas nécessaire).
 
-NB : à la première ouverture de VS Code, on vous propose l'installation d'un pack linguistique pour le français. Il est déconseillé d'installer ce pack : l'utilisation d'un IDE en anglais vous apprendra les termes que vous retrouverez plus tard dans la documentation en anglais. Dans le cas général, en informatique, on doit être à l'aise avec la lecture de sources de documentation en anglais et avec les logiciels en anglais, sans traduction automatique. Travailler directement en anglais vous épargnera de nombreux problèmes et vous facilitera globalement votre futur métier.
+NB : à la première ouverture de VS Code, on vous propose l'installation d'un pack linguistique pour le français. Il est déconseillé d'installer ce pack : l'utilisation d'un IDE en anglais vous apprendra les termes que vous retrouverez plus tard dans la documentation en anglais. Dans le cas général, en informatique, on doit être à l'aise avec la lecture de documentation en anglais et avec les logiciels en anglais, sans traduction automatique. Travailler directement en anglais vous épargnera de nombreux problèmes et vous facilitera globalement votre futur métier.
 
 ## Créer un projet Java
 
@@ -84,11 +86,11 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 
 Notez bien que le répertoire `src`, par exemple, se trouve un niveau au-dessous du projet ouvert. Les deux exemples qui suivent indiquent une ouverture d'un répertoire non-conforme et poseront des problèmes :
 
-- Un cran trop haut :
+- ouverture un cran trop haut :
 
 ![architecture_repertoires_mauvais_1](assets/architecture_repertoires_mauvais1.png)
 
-- Un cran trop bas :
+- ouverture un cran trop bas :
 
 ![architecture_repertoires_mauvais_2](assets/architecture_repertoires_mauvais2.png)
 
@@ -107,15 +109,17 @@ Deux petits paramètres pratiques à activer pour vous permettre d'enregistrer v
 - Localisez *Auto Save* et sélectionnez *onFocusChange* dans la liste déroulante : dorénavant, votre code sera automatiquement sauvegardé dès que la fenêtre d'édition perd le focus (changement de fichier, clic ailleurs...)
 - Localisez et cochez *Format on Save* : dorénavant, votre code sera automatiquement formaté (indentation, etc.) à chaque sauvegarde 
 
+Travailler avec un thème de couleurs qui nous plaît et qui soulage les yeux est important quand on programme. `F1` / `Color Theme` vous permet de choisir entre différents les différents thèmes installés. Vous pouvez ajouter de nouveaux thèmes (clairs ou sombres) via le panneau *Extensions* (à gauche). Tapez `@category:"themes"` dans le champ de recherche pour filtrer sur les thèmes, puis cliquez sur les nombreux thèmes proposés pour avoir un aperçu. Cliquez sur `Install` lorsque vous avez repéré un thème à ajouter. Il est également possible de *customiser* d'autres paramètres visuels, comme la police utilisée par exemple (dans les paramètres). Par défaut, VS Code est paramétré pour utiliser la police `Consolas`. D'autres polices spécifiques pour le code ont été créées (cherchez `coding fonts` sur votre moteur de recherche préféré).
+
 ## Ça ne fonctionne pas ?
 
 - La création de projet Maven échoue : vérifiez votre accès Internet
 - Les commandes Java ne fonctionnent pas : vérifiez que vous vous êtes bien déconnecté/reconnecté après l'installation de VS Code ou après toute modification de vos variables d'environnement
 - Le programme ne se lance pas :
-  - avez-vous des erreurs de compilation (du rouge) ?
-  - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ?
+  - avez-vous des erreurs de compilation (du rouge) ? Il faut les corriger
+  - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ? Regardez bien quel niveau est ouvert
   - essayez `F1` / `Java: Force Java Compilation` (indiquez `Full` ensuite)
-  - essayez de relancer VS Code (`F1` / `Reload Window`)
+  - essayez de relancer VS Code (`F1` / `Reload Window`) ; parfois, cela résout le problème tout seul
   - avez-vous les variables d'environnement `JAVA_HOME` et `PATH` correctement spécifiées (voir ci-dessous) ?
 - Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\`
 - Vérifiez que votre variable utilisateur `PATH` contient le chemin vers le sous-répertoire `bin` du JDK (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\bin` dans la liste des répertoires du `PATH`
