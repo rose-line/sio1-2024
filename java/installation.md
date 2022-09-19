@@ -38,7 +38,7 @@ La variable d'environnement PATH sur votre système contient un ensemble de rép
 
 Par exemple, sur le système suivant, ces trois entrées doivent être considérées :
 
-![variables d'environnement](assets/variables_environnement.png)
+![variables d'environnement](assets/variables_environnement_java.png)
 
 Le système est maintenant prêt à accueillir un nouveau JDK.
 
@@ -48,6 +48,28 @@ Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend 
 
 - [pour Windows](https://aka.ms/vscode-java-installer-win)
 - [pour macOS](https://aka.ms/vscode-java-installer-mac)
-- sous Linux, il faut faire l'installation « manuellement »
+- sous Linux, il faut faire l'installation « manuellement » (JDK + VS Code + extensions Java pour VS Code)
 
+## Créer un projet Java
+
+- ouvrez VS Code
+- tapez`Ctrl+Shift+P` (`Shift` = `Maj` = touche avec une flèche au-dessus de `Ctrl`)
+- la **palette de commande** s'ouvre : c'est un outil très utile sous VS Code qui permet d'accéder à toutes les fonctionnalités par simple recherche
+- tapez `java`
+- localisez et lancez `Create Java Project` dans la liste qui s'affiche
+- sélectionnez `Maven` (si pas disponible, l'installation n'est pas correcte)
+- tapez `junit5` dans le champ de recherche
+- aucune proposition correspondante n'apparaît dans la liste, mais cliquez sur `More...`
+- sélectionnez `java11-junit5`
+- sélectionnez la dernière version disponible
+- pour le nom du *package*, la convention généralement utilisée est de mettre le nom de domaine *inversé* de l'organisation (par exemple : `fr.dampierre`)
+- pour l'*artifact*, tapez le nom de votre projet (par exemple `java-intro`)
+- le système ouvre une fenêtre pour vous laisser choisir le répertoire dans lequel sera stocké votre nouveau projet
+- parcourez l'arborescence pour localiser votre répertoire de projets Java (par exemple, vous pourriez avoir un répertoire `Java` sur votre bureau Windows)
+- **Attention** : ne créez pas un répertoire spécifique pour le nouveau projet (Maven va le faire pour vous) ; indiquez juste votre répertoire de projets Java
+- la suite se passe dans le terminal qui s'ouvre dans la partie inférieure de VS Code ; la création de projet est lancée
+- la première fois, le gestionnaire de dépendances **Maven** va faire quelques téléchargements : une connexion internet est donc nécessaire pour cette phase
+- au bout d'un moment, le processus va se stopper pour vous laisser indiquer le numéro de version de base de votre programme : laissé le numéro proposé (1.0-SNAPSHOT) et appuyez sur `Entrée` (il faudra peut-être donner le focus au terminal en cliquant dessus avant)
+- confirmez le résumé donné avec `Y`
+- Le projet est créé ; cliquez sur `Open` dans la popup qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
 
