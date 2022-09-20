@@ -46,3 +46,17 @@ Il y a encore xxxxx secondes avant minuit.
 ### Exercice 4
 
 Maintenant il est 15 h 27 min 12 s (ça vous a pris super longtemps). Calculez le pourcentage de temps écoulé depuis le début de l'exercice par rapport aux 24 heures d'une journée. Considérez l'utilisation de nombres flottants pour afficher ce pourcentage avec décimales. N’hésitez pas à utiliser des variables intermédiaires (même si vous n'avez pas à les afficher) pour vous faciliter la tâche et rendre le code plus lisible.
+
+### Exercice 5
+
+Le but est de programmer un tout petit jeu, une sorte de « Devinez le nombre ». Une fois terminé, ça ressemble à ça :
+
+```
+Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.
+Entrez un nombre : 36
+Vous proposez : 36
+Le nombre auquel je pensais était : 47
+Vous étiez à 11 de la bonne réponse.
+```
+
+Nous écrirons des versions améliorées de ce jeu au fur et à mesure de notre apprentissage.
