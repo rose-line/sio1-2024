@@ -59,4 +59,6 @@ Le nombre auquel je pensais était : 47
 Vous étiez à 11 de la bonne réponse.
 ```
 
+Vous aurez besoin de générer un nombre aléatoire entre 1 et 100. Renseignez-vous sur le type objet `Random` de Java du package `java.util`. Vous verrez qu'il s'utilise un peu comme un objet `Scanner`.
+
 Nous écrirons des versions améliorées de ce jeu au fur et à mesure de notre apprentissage.
