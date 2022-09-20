@@ -49,7 +49,7 @@ Maintenant il est 15 h 27 min 12 s (ça vous a pris super longtemps). Calculez l
 
 ### Exercice 5
 
-Le but est de programmer un tout petit jeu, une sorte de « Devinez le nombre ». Une fois terminé, ça ressemble à ça :
+Le but est de programmer un tout petit jeu, une sorte de « Devinez le nombre ». Une fois terminé, vous devez avoir exactement la sortie suivante (excepté bien sûr le nombre à deviner et la proposition du joueur, qui vont changer à chaque exécution) :
 
 ```
 Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.
