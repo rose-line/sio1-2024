@@ -1,4 +1,4 @@
-# Mise en place de l'environnement
+# Mise en place de l'environnement de programmation
 
 Pour développer en Java, vous aurez besoin de :
 
