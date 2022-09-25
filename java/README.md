@@ -2,7 +2,7 @@
 
 ## Cours
 
-- 01 Introduction, variables, entrées et sorties
+- [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
 
 ## TP
 
