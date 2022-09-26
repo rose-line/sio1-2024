@@ -3,8 +3,10 @@
 ## Cours
 
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
+- 02 Instructions conditionnelles
 
 ## TP
 
 - [00 Mise en place de l'environnement de programmation](installation.md)
 - [01 Manipulation de variables, entrées et sorties](java_td_01_vars.md)
+- [02 Instructions conditionnelles](java_td_02_if.md)
