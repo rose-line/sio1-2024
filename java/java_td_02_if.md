@@ -6,6 +6,8 @@ _Si l'écriture de "méthodes" n'a pas encore été abordée dans le cours :_
 - _ignorez les exercices 2, 3, 7_
 - _considérez les entrées comme des entrées clavier et les sorties comme des affichages sur le terminal_
 
+---
+
 ### 1. Parité
 
 Écrire une méthode `demanderEntierEtAfficherParité` qui demande un entier à l'utilisateur, et qui affiche si cet entier est pair ou pas.
@@ -284,3 +286,5 @@ HPAJI P IDX, EJCZ PCPGRWXHIT ! => SALUT A TOI, PUNK ANARCHISTE !
 ### 19. Deviner le nombre, version 2
 
 Reprenez le programme « Devinez le nombre » du TP précédent. Changez la sortie pour indiquer si votre nombre était trop grand ou trop petit. Le programme indiquera par exemple : `Perdu ! Vous avez dépassé de 34` ou bien `Perdu ! Il vous manquait 12`. Si on a gagné, le programme doit afficher : `Quel bol, vous avez trouvé !`
+
+---
