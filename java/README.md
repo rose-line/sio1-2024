@@ -3,7 +3,7 @@
 ## Cours
 
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
-- 02 Instructions conditionnelles
+- [02 Instructions conditionnelles](pdf/java_02_if.pdf)
 
 ## TP
 
