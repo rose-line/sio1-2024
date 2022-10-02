@@ -4,6 +4,7 @@
 
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
 - [02 Instructions conditionnelles](pdf/java_02_if.pdf)
+- 03 Instructions de répétition
 
 ## TP
 
