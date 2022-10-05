@@ -3,7 +3,7 @@
 ## Cours
 
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
-- [02 Structures conditionnelles](pdf/java_02_if.pdf)
+- [02 Structures conditionnelles](pdf/java_02_if_sol.pdf)
 - [03 Instructions répétitives](pdf/java_03_boucles.pdf)
 
 ## TP
