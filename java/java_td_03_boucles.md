@@ -153,7 +153,7 @@ Les deux premiers nombres sont 0 et 1, ensuite chaque élément est la somme des
 
 ### Suite 3
 
-Produire la sortie suivante :
+Produire la sortie suivante (ce sont les entiers 1, 2, 3... à la puissance 2) :
 
 ```
 1 4 9 16 25 36 49 64 81 100
@@ -163,7 +163,7 @@ Produire la sortie suivante :
 
 ### Suite 4
 
-Produire la même sortie sans utiliser l'opérateur `*`.
+Produire la même sortie sans utiliser l'opérateur `*` (charcher comment on applique une puissance dans la bibliothèque mathématique de Java).
 
 ---
 
