@@ -4,7 +4,7 @@
 
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
 - [02 Structures conditionnelles](pdf/java_02_if.pdf)
-- [03 Instructions de répétition](pdf/java_03_boucles.pdf)
+- [03 Instructions répétitives](pdf/java_03_boucles.pdf)
 
 ## TP
 
