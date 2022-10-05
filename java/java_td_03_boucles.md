@@ -9,7 +9,7 @@ public static void zarbi() {
   int nb = 4;
   for (int i = 1; i <= nb; i++) {
     System.out.println(nb);
-    nb /= 2;
+    nb /= 2;   // équivalent à nb = nb / 2
   }
 }
 ```
@@ -21,7 +21,7 @@ public static void zarbi() {
 ```java
 int total = 25;
 for (int nb = 1; nb <= (total / 2); nb++) {
-  total -= nb;
+  total -= nb;  // équivalent à total = total - nb
   System.out.println(total + " " + nb);
 }
 ```
