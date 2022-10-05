@@ -163,7 +163,7 @@ Produire la sortie suivante (ce sont les entiers 1, 2, 3... à la puissance 2)�
 
 ### Suite 4
 
-Produire la même sortie sans utiliser l'opérateur `*` (charcher comment on applique une puissance dans la bibliothèque mathématique de Java).
+Produire la même sortie sans utiliser l'opérateur `*` (chercher comment on applique une puissance dans la bibliothèque mathématique de Java).
 
 ---
 
