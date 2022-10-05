@@ -484,7 +484,7 @@ __/:::::::::||:::::::::\__
 |""""""""""""""""""""""""|
 ```
 
-Paramétrer. Ici TAILLE = 4, voici le même en TAILLE = 13 :
+Paramétrer la taille. Ici TAILLE = 4, voici le même en TAILLE = 13 :
 
 ```                                    ||
                                        ||
