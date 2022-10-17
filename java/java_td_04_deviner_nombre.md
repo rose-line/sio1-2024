@@ -1,8 +1,8 @@
-# Jeu « Deviner le nombre »
+## Jeu « Deviner le nombre »
 
-Nous allons mettre en place et améliorer au fur et à mesure le jeu « Deviner le nombre » introduit lors d'un TP précédent.
+Nous allons mettre en place et modifier au fur et à mesure le jeu « Deviner le nombre » introduit lors d'un TP précédent.
 
-## Version 1 - Base (reprise du TP 01)
+### Version 1 - Base (reprise du TP 01)
 
 Le but est de programmer un petit jeu, une sorte de « Devinez le nombre ». Une fois terminé, vous devez avoir exactement la sortie suivante (excepté bien sûr le nombre à deviner et la proposition du joueur, qui vont changer à chaque exécution) :
 
@@ -18,13 +18,13 @@ Le nombre à deviner doit être généré aléatoirement.
 
 ----
 
-## Version 2 - Trop petit/grand (reprise du TP 02)
+### Version 2 - Trop petit/grand (reprise du TP 02)
 
 Changez la sortie pour indiquer si votre nombre était trop grand ou trop petit. Le programme indiquera par exemple : `Perdu ! Vous avez dépassé de 34` ou bien `Perdu ! Il vous manquait 12`. Si on a gagné, le programme doit afficher : `Quel bol, vous avez trouvé !`
 
 ----
 
-## Version 3 - On recommence jusqu'au gain
+### Version 3 - On recommence jusqu'au gain
 
 On ne s'arrête désormais plus après une tentative. Le programme redemande une nouvelle proposition jusqu'à ce que le joueur gagne. À la fin, on affiche le nombre de tentatives qui ont été nécessaires.
 
@@ -43,7 +43,55 @@ Il vous a fallu 4 tentatives.
 
 ----
 
-## Version 4 - Faire jouer l'ordi
+### Version 4 - Vérification de saisie utilisateur
+
+On souhaite qu'une erreur de saisie soit détectée et rapportée à l'utilisateur : tout nombre donné qui n'est pas compris entre 1 et 100 doit être refusé :
+
+```
+Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.
+Entrez un nombre : 36
+Trop grand.
+Entrez un nombre : -10
+Merci d'entrer un nombre entre 1 et 100.
+Entrez un nombre : 123
+Merci d'entrer un nombre entre 1 et 100.
+Entrez un nombre : 23
+Gagné !
+Il vous a fallu 2 tentatives.
+```
+
+Notez que les nombres interdits ne sont pas comptabilisés dans le nombre de tentatives final.
+
+----
+
+### Version 5 - Recommencer ?
+
+Faire en sorte que le programme propose au joueur de rejouer à chaque fin de partie :
+
+```
+Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.
+Entrez un nombre : 36
+...
+Entrez un nombre : 23
+Gagné !
+Il vous a fallu 2 tentatives.
+
+On continue (O/N) ? o
+
+Je pense à un nombre entre 1 et 100 inclus. Devinez lequel.
+Entrez un nombre : 12
+...
+Entrez un nombre : 75
+Gagné !
+Il vous a fallu 14 tentatives.
+
+On continue (O/N) ? n
+Merci d'avoir joué !
+```
+
+----
+
+### Version 6 - Faire jouer l'ordi
 
 Dans cette version, c'est l'ordinateur qui joue tout seul : il génère un nombre qu'il doit lui-même deviner. Bien sûr, le programme ne doit pas utiliser le fait qu'il connaît en réalité le nombre pour gagner (pas de triche !).
 
@@ -64,7 +112,7 @@ Il m'a fallu 5 tentatives.
 
 ----
 
-## Version 5 - Plusieurs parties
+### Version 7 - Plusieurs parties
 
 Simulez plusieurs parties de l'ordinateur et calculez la moyenne de tentatives sur toutes les parties. Testez d'abord sur 3 ou 4 parties pour voir si votre algorithme fonctionne et si la moyenne est correcte :
 
@@ -99,7 +147,9 @@ Gagné ! Il m'a fallu 69 tentatives.
 En moyenne, sur 3 parties, il m'a fallu 75,66 tentatives.
 ```
 
-## Version 6 - Statistiques
+----
+
+### Version 8 - Statistiques
 
 On cherche à savoir combien de tentatives il faut en moyenne à l'ordinateur pour gagner. Pour se rapprocher au plus près de la moyenne mathématique de notre stratégie (qu'on ne sait pas calculer !), on va faire jouer un très grand nombre de parties à l'ordinateur (10000 sera suffisamment significatif). Pour éviter d'avoir une sortie très grande (et lente), on ne va plus afficher tout le détail pour chaque partie, mais seulement une ligne par partie, qui contiendra :
 
@@ -120,7 +170,9 @@ Voici un extrait exemple de sortie pour 10000 simulations :
 En moyenne, sur 10000 parties, il m'a fallu 99,47 tentatives.
 ```
 
-## Version 7 - Optimisation
+----
+
+### Version 9 - Optimisation
 
 Les exemples ci-dessus montrent un programme qui tente un nombre aléatoire à chaque fois, sans prendre en compte les indications-réponses (trop petit/grand) ni les nombres qu'il a déjà tentés. Cela nous donne, en moyenne, environ 100 tentatives pour trouver à chaque partie !
 
@@ -131,3 +183,5 @@ On supprimera maintenant les affichages de chaque partie, pour ne conserver que 
 ```
 En moyenne, sur 10000 parties, il m'a fallu 14,56 tentatives.
 ```
+
+----
