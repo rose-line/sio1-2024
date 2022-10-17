@@ -12,3 +12,4 @@
 - [01 Manipulation de variables, entrées et sorties](java_td_01_vars.md)
 - [02 Structures conditionnelles](java_td_02_if.md)
 - [03 Structures répétitives](java_td_03_boucles.md)
+- [04 Jeu « Deviner le nombre »](java_td_04_deviner_nombre.md)
