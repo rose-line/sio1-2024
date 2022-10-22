@@ -16,4 +16,4 @@
 
 ## Devoirs
 
-- [INT01 (13/10/2022) Variables, instructions conditionnelles et répétitives](B1_BP_INT01_20221013.html)
+- [INT01 (13/10/2022) Variables, instructions conditionnelles et répétitives](pdf/B1_BP_INT01_20221013.pdf)
