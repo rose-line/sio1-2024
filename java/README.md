@@ -13,3 +13,7 @@
 - [02 Structures conditionnelles](java_td_02_if.md)
 - [03 Structures répétitives](java_td_03_boucles.md)
 - [04 Jeu « Deviner le nombre »](java_td_04_deviner_nombre.md)
+
+## Devoirs
+
+- [INT01 (13/10/2022) Variables, instructions conditionnelles et répétitives](B1_BP_INT01_20221013.html)
