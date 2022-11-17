@@ -5,6 +5,9 @@
 - [01 Introduction, variables, entrées et sorties](pdf/java_01_vars.pdf)
 - [02 Structures conditionnelles](pdf/java_02_if_sol.pdf)
 - [03 Instructions répétitives](pdf/java_03_boucles.pdf)
+- [04 Méthodes](pdf/java_04_methodes.pdf)
+- [05 Méthodes paramétrées](pdf/java_05_methodes_parametrees.pdf)
+- [06 Valeur de retour de méthode](pdf/java_06_retour_methode.pdf)
 
 ## TP
 
