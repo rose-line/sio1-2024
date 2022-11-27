@@ -1,16 +1,17 @@
-# Conception d'une interface graphique et accès à une base de données
+# Conception d'une interface graphique et accès à une base de données en Java
 
 ## Introduction
 
 Ce TP vous donnera les éléments nécessaires pour :
 
-- concevoir une interface graphique et gérer les interactions utilisateur en utilisant le framework _JavaFX_ ;
-- accéder à un SGDBR (Système de Gestion de Bases de Données Relationnelles) MySQL afin de manipuler des données depuis une application Java grâce à JDBC (_Java Database Connector_)
+- concevoir une interface graphique et gérer les interactions utilisateur en utilisant le framework **JavaFX**
+- accéder au SGBDR MySQL (Système de Gestion de Bases de Données Relationnelles) afin de manipuler des données depuis une application Java grâce à **JDBC** (_Java Database Connector_)
 
 ## Prérequis
 
 - Visual Studio Code avec les extensions Java fonctionnelles
 - JDK récent (minimum JDK 13)
+- Serveur MySQL local en fonctionnement
 
 ## Conception d'une interface graphique avec JavaFX
 
@@ -108,6 +109,7 @@ On va s'assurer que tout est bien en place en modifiant légèrement l'interface
 Étudions le code de la classe `App` :
 
 ```java
+// App.java
 public class App extends Application {
 
   private static Scene scene;
@@ -161,6 +163,8 @@ public class App extends Application {
 
 ## Les conteneurs
 
+_La lecture de cette section et de ses sous-sections est facultative dans un premier temps._
+
 Le panneau _Library_ contient plusieurs catégories de _controls_, dont les conteneurs. Chaque conteneur disponible est spécialisé pour une certaine disposition des éléments qu'il contient. Les sections suivantes en présentent quelques-uns.
 
 ### StackPane
@@ -204,68 +208,146 @@ Le panneau _Library_ contient plusieurs catégories de _controls_, dont les cont
 - `VBox` : placement vertical
 - `ButtonBar` : spécialisé dans le placement horizontal de boutons
 
+## Programmation événementielle
+
+Une application avec une interface graphique moderne passe une bonne partie de son temps à attendre que certains événements se déclenchent. Le programme, au lieu d'avoir un flux d'exécution linéaire comme dans un programme classique (on exécute les lignes de code les unes après les autres), commence par afficher la vue d'accueil et _attend_. Il attend qu'un événement auquel il est _abonné_ se produise. Les événements en question sont de types divers :
+
+- clic de souris
+- appui sur touches du clavier
+- passage de la souris au-dessus d'un élément spécifique
+- chargement d'une vue
+- etc.
+
+Pour résumer, on peut « capter » tout ce qui se passe sur l'interface. Comme on « réagit » à des événements, on appelle ça de la **programmation événementielle**.
+
 ## Les controllers
 
-On va vouloir réagir dans 
+À chaque vue FXML va correspondre un fichier Java qui va contenir le code de réaction aux événements auxquels on s'abonne : c'est le **controller**. Par exemple, dans l'application-démo, la vue d'accueil `primary.fxml` a un fichier controller associé : `PrimaryController.java`.
 
-- Quand vous donnez un fichier FXML comme racine d'une _Scene_, le FXML est analysé et transformé en objets Java qui vont pouvoir être manipulés dans le code (accès en lecture/écriture à telle zone de texte, peupler une liste, réaction à un événement...)
-- Pour cela, en FXML sous SB, on donne des noms à chaque élément que l'on va vouloir manipuler (sous-panneau _Code_ de _Inspector_, propriété `fx:id`)
-- Dans le _controller_, on aura alors accès à cet élément en le désignant par son nom
+```java
+// PrimaryController.java
+public class PrimaryController {
 
-### Configurer les actions
+  @FXML
+  private void switchToSecondary() throws IOException {
+    App.setRoot("secondary");
+  }
+}
+```
 
-- Des événements, auxquels vous pouvez réagir, sont définis sur chaque _control_
-  - clic sur un bouton
-  - appui sur touches du clavier
-  - passer la souris au-dessus d'un élément...
-- On peut définir des méthodes, appelées _handlers_, qui définissent ce qui doit être fait lorsque l'événement survient
-- On relie un événement à une méthode _handler_ par l'intermédiaire du _controller_ (voir plus loin)
+Ce fichier ne comporte qu'une méthode : `switchToSecondary()`. Cette méthode est déclenchée lorsque l'utilisateur, depuis la vue _primary_, appuie sur le bouton. Le code de cette méthode appelle la méthode `setRoot` pour changer de vue. Un controller peut ainsi disposer de plusieurs méthodes qui réagissent à divers événements dans une vue spécifique.
 
-### Exemple de _controller_
+Mais comment le programme sait-il que c'est _cette méthode_ dans _ce fichier_ qu'il faut précisément invoquer lors de l'appui sur le bouton ? Ces informations sont indiquées dans le fichier FXML et sont modifiables directement depuis Scene Builder.
 
-- On va reprendre comme base le `PrimaryController` défini dans l'application-demo, comprendre comment il fonctionne et le modifier
-- Dans SB, ouvrez `primary.fxml`, situé dans un sous-répertoire de `resources`
-- Notez la structure aborescente du code FXML ; cependant, en général, vous n'allez jamais éditer un fichier FXML directement, même si il arrive de les consulter pour chercher à expliquer une erreur
-- Utilisez le clic-droit pour l'ouvrir sous SB
-- Dans SB, ouvrez le sous-panneau _controller_ (tout en bas à gauche)
-  - notez que le champ `Controller class` est défini
-  - cela signifie qu'un _controller_ est relié à cette _view_
-  - c'est le fichier `PrimaryController` que l'on retrouve dans notre projet
-  - il est complètement qualifié, c'est-à-dire qu'il est précédé du nom de son package (`fr.votredomaine`)
-  - quand vous définissez une vue, **vous devez toujours définir le _controller_ associé**
-- Sélectionnez maintenant le bouton _Switch to Secondary View_
-- Dans le panneau _Inspector_, sous-panneau *Code* :
-  - localisez `fx:id` (_identity_)
-  - notez que le champ est déjà renseigné avec le nom `primaryButton`  : c'est le nom du bouton
-  - localiser `On Action`
-  - notez que le champ est déjà renseigné avec `switchToSecondary` : c'est le nom de la méthode qui va être associée à l'action principale de cet élément (clic)
-- Allez dans le menu _View/Show Sample Controller Skeleton_
-  - cela montre un exemple de code _controller_
-  - notez qu'il définit une variables pour l'élément auquel on a donné un nom
-  - et une méthode vide dont le nom correspond au nom donné plus haut
-  - lorsque l'on définit de nouveaux noms/actions, on peut utiliser cet exemple de code pour copier/coller les nouvelles parties dans le _controller_ sous VS Code avant de définir le code des méthodes
-- Revenez sous VS Code et observez de nouveau le code de `PrimaryController`
-  - notez que le nom du bouton n'a pas été conservé (le code ne l'utilise pas) ; s'il était défini, on pourrait accéder aux propriétés du bouton dans le code en utilisant la notation pointée (par exemple `primaryButton.setTextFill(Color.web("BLUE"))` changera le texte en bleu)
-  - l'entête de la méthode change un peu par rapport au code-exemple de SB mais cela revient au même
-  - la méthode est implémentée : elle fournit le code associé à l'événement
-  - ici on vient, en appelant `setRoot()` dans la classe `App`, changer la racine de la `Scene`, ce qui résulte en l'affichage du second écran (`secondary.fxml`)
+## Branchement au controller depuis Scene Builder
 
-### Testez par vous-même
+Il y a plusieurs étapes à réaliser pour lier un _control_ JavaFX au code Java qui réagit à un événement sur ce _control_ :
 
-- Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur le bouton :
+1. (SB) Nommer le ou les _control(s)_ concerné(s)
+2. (SB) Localiser l'événement voulu et indiquer le nom de la future méthode associée dans le controller
+3. (VSCode) Créer/modifier le controller pour la vue
+4. (SB) Indiquer le nom du controller associé à la vue
+5. (VSCode) Écrire le code de la méthode
+
+Nous allons illustrer cette procédure au travers d'un exemple. Imaginons que nous souhaitions avoir un champ texte (`TextField`) et un bouton (`Button`) supplémentaires. Quand l'utilisateur entre un nombre entre 0 et 360 dans ce champ texte et appui sur le bouton, le champ texte doit opérer une rotation d'autant de degrés. Voyons comment obtenir cet effet en reprenant les étapes ci-dessus.
+
+### Mise en place des nouveaux _controls_
+
+- Sous SB, ajoutez un `Button` avec le texte `Pivoter` à la vue `primary`
+- Ajoutez un `TextField`
+- Donnez une marge haute et une marge basse de 70 au `TextField`, afin de lui laisser de l'espace lorsqu'il va pivoter
+
+![javafx_pivot](pivot.png)
+
+### 1. Nommer les _controls_ concernés
+
+Pour interagir avec les _controls_, il est souvent nécessaire que le code Java puisse les identifier. Par exemple, il faudra avoir une référence sur le `TextField` pour lui dire de pivoter. Pour cela, on lui donne un nom :
+
+- Sous SB, sélectionnez le nouveau `TextField`
+- Dans le panneau _Inspector_, ouvrir le sous-panneau _Code_ (tout en bas)
+- Le champ `fx:id` représente l'identifiant du _control_ pour JavaFX
+- Indiquez l'identifiant `txtPivot` pour le `fx:id`
+
+### 2. Localiser l'événement voulu et indiquer la méthode associée
+
+On va maintenant associer l'événement « clic sur le bouton _Pivoter_ » à la méthode `btnPivoterClick` :
+
+- Sous SB, sélectionnez le bouton
+- Dans le panneau _Inspector_, ouvrir le sous-panneau _Code_
+- Le champ _On Action_ représente le nom de la méthode à exécuter lors d'un clic
+- Indiquez le nom `btnPivoterClick` (cette méthode n'existe pas encore, nous allons l'écrire par la suite dans le controller)
+
+### 3. Créer/modifier le controller pour la vue
+
+Étant donné qu'on travaille sur une vue avec un controller existant (`PrimaryController.java`), on n'a pas besoin d'en créer un nouveau ici. En revanche on doit lui ajouter les éléments nouveaux qui nous concernent ici, à savoir le nom du nouveau `TextField` et la méthode de réaction au clic sur le bouton. Pour cela, le plus simple consiste à se baser sur le « squelette » créé par SB :
+
+- Sous SB, ouvrez le menu _View/Show Sample Controller Skeleton_
+- Une fenêtre s'ouvre avec un squelette de classe controller contenant les _controls_ identifiés et les méthodes-événements définies
+- Ici, vous retrouvez notamment notre élément `txtPivot` et la méthode `btnPivotClick`
+- Copiez le code proposé correspondant à ces deux concepts
+- Sous VSCode, collez-le dans le controller `PrimaryController` en conservant le code de la méthode `switchToSecondary`
+
+```java
+public class PrimaryController {
+
+  @FXML
+  private TextField txtPivot;
+
+  @FXML
+  void btnPivoterCllick(ActionEvent event) {
+  }
+
+  @FXML
+  private void switchToSecondary() throws IOException {
+    App.setRoot("secondary");
+  }
+}
+```
+
+Dans le cas où l'on a créé une nouvelle vue, il faudra créer un nouveau fichier controller correspondant et y coller la totalité du code du squelette.
+
+### 4. Indiquer le nom du controller associé à la vue
+
+Le controller est en place, mais le FXML ne sait pas automatiquement que c'est vers lui qu'il faudra envoyer les événements.
+
+- Sous SB, dans le sous-panneau _Document/Controller_ (sous _hierarchy_), indiquez grâce au menu déroulant que le controller concerné est `PrimaryController`
+- Ici, cette action est inutile car `primary` était déjà relié au bon controller ; mais il ne faudra pas oublier cette étape lors de la conception de nouvelles vues
+
+### 5. Écrire le code de la méthode
+
+Tout est maintenant « branché », il reste à écrire le code qui doit effectivement s'exécuter lorsque le bouton est cliqué. Copiez le code suivant dans la méthode `btnPivoterClick` du `PrimaryController` :
+
+```java
+@FXML
+  void btnPivoterClick(ActionEvent event) {
+    String rotationString = txtPivot.getText();      // récupère le contenu du TextField
+    int rotation = Integer.parseInt(rotationString); // transforme le texte récupéré en valeur entière
+    txtPivot.setRotate(rotation);                    // fait pivoter le TextField
+  }
+```
+
+- Il est possible que quelques importations soient nécessaires pour que le code compile (utilisez l'ampoule pour importer ce qu'il faut)
+- Notez comment la méthode a accès au `TextField` en utilisant son identifiant `txtPivot` et la notation pointée pour appeler une méthode dessus
+- Testez l'application
+  - au lancement, vous devriez voir votre vue modifiée (Non ? Avez-vous sauvegardé le FXML sous SB ?)
+  - entrez la valeur 45 dans le champ texte
+  - cliquez sur le bouton _Pivoter_
+  - le champ texte devrait pivoter de 45 degrés
+- Retenez comment l'appel `txtPivot.getText()` a permis de récupérer le contenu du champ texte
+  - l'appel `setText("toto")` permettrait par exemple de modifier le contenu du champ texte en `"toto"`
+  - n'hésitez pas à regarder ce qui est disponible lorsque vous tapez `unControl.` dans l'IDE, essayez d'explorer les possibilités et de trouver par vous-même ce que vous cherchez
+- Notez que ce code ne gère pas vraiment les erreurs : si l'utilisateur entre une valeur non entière, une exception (erreur) est lancée, mais les applications avec interface graphique se contentent « d'avaler » l'erreur si elle n'est pas gérée et continuent à fonctionner si possible (ce n'est évidemment pas une bonne pratique de développement)
+- Notez la façon dont les éléments graphiques ont été nommés dans cet exemple : un préfixe indique de quel type d'élément il s'agit
+  - `txt` pour un champ texte, `btn` pour un bouton, etc.
+  - ce n'est pas obligatoire mais c'est une bonne convention
+- Notez que **chaque variable et chaque méthode déclarée en FXML (depuis SB) doit avoir l'annotation `@FXML`** côté controller sinon Java ne considérera pas que les deux sont reliés (mettre plusieurs déclarations de variables sous une seule annotation `FXML` n'est pas suffisant)
+
+## Testez par vous-même
+
+- Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur un nouveau bouton _TEST_ :
   - la couleur du texte du bouton passe en rouge
-  - le texte du label du dessus se change en "COUCOU !"
-  - (consultez la section plus bas pour les détails si vous n'y arrivez pas)
-
-### N'oubliez pas
-
-- Quand vous définissez une nouvelle vue (FXML), vous devez :
-  - définir un nouveau fichier _controller_ dans VS Code
-  - sous SB, associer la vue avec ce _controller_
-  - pour chaque élément auquel on voudra accéder, lui donner un nom
-  - pour chaque événement auquel on voudra réagir, renseigner le nom de méthode correspondante sur le _control_ associé
-  - utiliser SB pour vous indiquer à quoi doit ressembler le code de _controller_
-  - utiliser la notation pointée pour accéder aux propriétés des _controls_ (en lecture ou en écriture)
+  - le texte du label indiquant `Secondary View` du dessus se change en `COUCOU !`
+  - la vue ne change plus vers la _Primary View_
 
 ## Détails de l'implémentation d'un nouvel écran
 
