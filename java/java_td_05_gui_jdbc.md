@@ -5,7 +5,7 @@
 Ce TP vous donnera les éléments nécessaires pour :
 
 - concevoir une interface graphique et gérer les interactions utilisateur en utilisant le framework **JavaFX**
-- accéder au SGBDR MySQL (Système de Gestion de Bases de Données Relationnelles) afin de manipuler des données depuis une application Java grâce à **JDBC** (_Java Database Connector_)
+- accéder au SGBDR MySQL (Système de Gestion de Bases de Données Relationnelles) afin de manipuler des données depuis une application Java grâce à **JDBC** (_Java Database Connectivity_)
 
 ## Prérequis
 
@@ -13,9 +13,9 @@ Ce TP vous donnera les éléments nécessaires pour :
 - JDK récent (minimum JDK 13)
 - Serveur MySQL local en fonctionnement
 
-## Conception d'une interface graphique avec JavaFX
+# PARTIE 1 - Conception d'une interface graphique avec JavaFX
 
-### Création de projet JavaFX sous Maven (pour **VS Code** uniquement)
+## Création de projet JavaFX sous Maven (pour **VS Code** uniquement)
 
 - Ouvrez VS Code ; aucun projet ne doit être chargé
 - Palette de Commande (_Ctrl+Shift+P_) -> "_Create Maven Project_"
@@ -31,7 +31,7 @@ Ce TP vous donnera les éléments nécessaires pour :
 - BUILD SUCCESS ! (Non ? Vérifiez le JDK installé, et la variable d'environnement utilisateur `JAVA_HOME`)
 - VS Code vous propose d'ouvrir le projet nouvellement créé (sinon, ouvrez-le manuellement)
 
-### Lancement de l'application
+## Lancement de l'application
 
 - Ouvrez le fichier `App.java` (dans `src`) et lancez l'application (_F5_) pour vous assurer de son bon fonctionnement
   - une fenêtre s'ouvre, contenant un label (_Primary View_) et un bouton unique (_Switch to Secondary View_)
@@ -39,21 +39,21 @@ Ce TP vous donnera les éléments nécessaires pour :
   - la fenêtre est remplacée par la _Secondary View_ et vous propose de repasser à la _Primary View_
 - Cette petite application-démo ne fait rien d'autre que d'alterner entre deux vues, mais fixe les bases de fonctionnement d'une application JavaFX
 
-### _Scene Builder_
+## _Scene Builder_
 
 - **_Scene Builder_** (SB) est une application indépendante de tout IDE qui permet de faciliter la réalisation d'interfaces graphiques (GUI) JavaFX
 - Recherchez l'application _Scene Builder_ (https://gluonhq.com/products/scene-builder/) et installez-la
 - Dans SB, on manipule des fichiers `.fxml`, pour créer et modifier des fichiers FXML contenant les vues (« écrans ») qui seront ensuite affichées par votre application JavaFX
 - **Erreur fréquente** : SB ne vous rappelle pas de sauvegarder ; il arrive que l'on relance l'application sous VS Code après avoir modifié une vue FXML sous SB et que l'on se demande pourquoi ça ne fonctionne pas...
 
-### Installation d'extensions VS Code
+## Installation d'extensions VS Code
 
 Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (panneau « Extensions » sur la gauche) :
 
 - `JavaFX Support` : permet d'éviter quelques avertissements (_warnings_) issus de bugs
 - `SceneBuilder extension for Visual Studio Code` : permet simplement d'ouvrir par clic-droit un fichier FXML directement dans Scene Builder
 
-### Ouverture d'une vue sous Scene Builder
+## Ouverture d'une vue sous Scene Builder
 
 - Sous VS Code, localisez et ouvrez le fichier `primary.fxml` dans le répertoire `resources`
 - Ce fichier représente donc, sous forme de code FXML, l'interface graphique que vous voyez lorque l'application est lancée (la _Primary View_)
@@ -63,7 +63,7 @@ Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (p
 - SB s'ouvre en chargeant le fichier concerné
 - L'interface graphique de la vue `primary.fxml` s'affiche au milieu de l'application
 
-### Fonctionnement de Scene Builder
+## Fonctionnement de Scene Builder
 
 - Quatre grandes zones à différencier :
   - au centre : l'interface graphique sur laquelle on travaille
@@ -80,7 +80,7 @@ Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (p
   - le glisser-déposer directement dans l'interface graphique (ou dans la zone _hierarchy_, ce qui est parfois plus pratique)
   - modifier ses propriétés (texte, couleurs, marges...) dans le panneau _Inspector_
 
-### Modification de l'interface
+## Modification de l'interface
 
 On va s'assurer que tout est bien en place en modifiant légèrement l'interface :
 
@@ -104,7 +104,7 @@ On va s'assurer que tout est bien en place en modifiant légèrement l'interface
   - de réagir dans le code Java aux événements qui sont détectés dans l'interface (clic sur un bouton, appui sur une touche...)
   - tout en changeant de vue (la _root_) lorque nécessaire
 
-### Étude du code de l'application-démo
+## Étude du code de l'application-démo
 
 Étudions le code de la classe `App` :
 
@@ -147,7 +147,7 @@ public class App extends Application {
   - la méthode `loadFXML` charge une vue FXML depuis un nom de fichier passé en paramètre (`String fxml`) et renvoie la vue sous forme utilisable (`Parent`)
   - la méthode `setRoot` permet de passer à la vue donnée en paramètre (`String fxml`)
 
-## _Layout_ (dispositon des _controls_) et hiérarchie
+## Hiérarchie
 
 - Pour concevoir une interface graphique en JavaFX, il faut raisonner en terme de d'éléments conteneurs qui contiendront d'autres éléments
 - Il y a donc une hiérarchie depuis la racine (_root_) qui est très souvent un conteneur
@@ -160,7 +160,6 @@ public class App extends Application {
    - un `TextField` (champ texte éditable) qui permettra de rechercher un client par son nom
    - un conteneur `HBox` (horizontal)
     - qui lui-même contiendra plusieurs boutons empilés horizontalement
-- Le sous-panneau _Layout_ de droite 
 
 ## Les conteneurs
 
@@ -258,7 +257,7 @@ Nous allons illustrer cette procédure au travers d'un exemple. Imaginons que no
 - Ajoutez un `TextField`
 - Donnez une marge haute et une marge basse de 70 au `TextField`, afin de lui laisser de l'espace lorsqu'il va pivoter
 
-![javafx_pivot](pivot.png)
+![javafx_pivot0](javafx_pivot0.png)
 
 ### 1. Nommer les _controls_ concernés
 
@@ -335,12 +334,15 @@ Tout est maintenant « branché », il reste à écrire le code qui doit eff
   - cliquez sur le bouton _Pivoter_
   - le champ texte devrait pivoter de 45 degrés
 
-### Conseils
+![javafx_pivot45](javafx_pivot45.png)
+
+## Conseils
 
 - Retenez comment l'appel `txtPivot.getText()` a permis de récupérer le contenu du champ texte
   - l'appel `setText("toto")` permettrait par exemple de modifier le contenu du champ texte en `"toto"`
 - De manière générale, regardez ce qui est disponible lorsque vous tapez `unControl.` dans l'IDE ; essayez d'explorer les possibilités et de trouver par vous-même ce que vous cherchez
 - Notez que le code précédent ne gère pas vraiment les erreurs : si l'utilisateur entre une valeur non-entière, une exception (erreur) est lancée, mais les applications avec interface graphique se contentent « d'avaler » l'erreur si elle n'est pas gérée et continuent à fonctionner si possible (ce n'est évidemment pas une bonne pratique de développement)
+- Parfois, l'entête d'une méthode a besoin de la mention `...throws IOException` à la fin, pour indiquer que le code de la méthode pourrait lancer une exception (c'est le cas par exemple de la méthode `switchToSecondary`)
 - Notez la façon dont les éléments graphiques ont été nommés dans cet exemple : un préfixe indique de quel type d'élément il s'agit
   - `txt` pour un champ texte, `btn` pour un bouton, etc.
   - ce n'est pas obligatoire mais c'est une bonne convention
@@ -353,6 +355,8 @@ Tout est maintenant « branché », il reste à écrire le code qui doit eff
   - aux controlleurs associés (`ConnexionController.java`)
   - aux `fx:id` des éléments graphiques (`btnValider`)
   - aux méthodes-événement (`btnValiderClick`)
+- Utilisez des instructions `println` au fur et à mesure pour afficher l'état de vos variables et vérifier que tout se passe bien, comme vous le faites dans vos programmes console habituels
+  - les informations seront bien sûr affichées sur la sortie standard (le terminal) et non l'interface graphique, mais cela vous permettra de déboguer facilement
 
 ## À faire vous-même
 
@@ -362,6 +366,130 @@ Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur un nouveau bo
 - le texte du label indiquant `Secondary View` du dessus se change en `COUCOU !`
 - la vue ne change plus vers la _Primary View_
 
+# PARTIE 2 - Accès à une base de données via JDBC
+
+## JDBC
+
+JDBC (_Java Database Connectivity_) est une interface de programmation Java qui permet aux applications d'accéder à une base de données relationnelle. Des pilotes JDBC sont disponibles pour tous les systèmes connus de bases de données relationnelles, comme MySQL.
+
+## Installation
+
+- Pour pouvoir utiliser facilement JDBC, votre projet de départ doit être généré par Maven
+  - c'est le cas si vous avez créer votre projet comme demandé
+- Dans votre projet généré par Maven :
+  - ouvrez la palette de commande (_Ctrl+Shift+P_)
+  - tapez `maven`
+  - sélectionnez _Add a dependency_
+  - tapez `mysql`
+  - trouvez `mysql-connector-java` de _mysql_ et validez
+  - la dépendance devrait être ajoutée automatiquement au fichier `pom.xml` (voir code ajouté ci-dessous)
+  - approuvez la demande de VSCode (en bas à droite) de mise à jour de la configuration
+
+```
+<dependencies>
+    ...
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>X.Y.Z</version>
+    </dependency>
+    ...
+</dependencies>
+```
+
+- Si votre projet dispose d'un fichier `module-info.java` (s'il s'agit d'un projet JavaFX notamment), modifiez-le pour ajouter la dépendance au module `java.sql` (en ne touchant surtout pas au reste du fichier)
+  - pour cela, ajoutez la ligne `requires java.sql` au fichier, à cet endroit :
+
+```java
+module fr... {
+  // requires...
+  requires java.sql;
+  // opens...
+  // exports...
+}
+```
+
+Votre projet est maintenant configuré pour reconnaître du code JDBC d'accès à une BDD
+
+## Connexion à la BDD
+
+Voici du code qui se connecte à une base de données :
+
+- nommée `sample`
+- sur un SGBDR MySQL
+- lancé localement
+- écoutant le port 3306
+- avec l'identifiant `monid`
+- et le mot de passe `monmotdepassefort`
+
+```java
+String dbURL = "jdbc:mysql://localhost:3306/sample";
+String utilisateur = "monid";
+String mdp = "monmotdepassefort";
+
+try {
+  // Connexion en passant les informations spécifiées précédemment
+  Connection conn = DriverManager.getConnection(dbURL, utilisateur, mdp);
+  // Si on est bien connecté à la DB
+  if (conn != null) {
+    // On affiche un petit message sur le terminal
+    System.out.println("Connexion réussie !");
+  }
+} catch (SQLException ex) {
+  // Ici, on a du code de traitement d'erreur
+  // On ne s'en occupe pas pour le moment mais le bloc try/catch est nécessaire
+  ex.printStackTrace();
+}
+```
+
+Une fois la connexion établie, on a un objet `Connection` appelé ici `conn` que l'on pourra utiliser pour exécuter des requêtes SQL.
+
+## Requête d'interrogation
+
+**Attention** : dans la suite, lorsque vous résolvez les imports d'objets SQL manquants (avec la petite ampoule ou bien `Ctrl+;`), regardez bien ce qui vous est proposé et sélectionnez les packages issus de `java.sql` (parfois d'autres packages sont proposés par défaut).
+
+Voici du code permettant de faire une requête d'interrogation à partir d'un objet `Connection` `conn` construit précédemment à partir de la table exemple suivante :
+
+![jdbc_sample_utilisateurs](jdbc_sample_utilisateurs.png)
+
+```java
+String sql = "SELECT nom, email FROM utilisateurs";
+Statement requete = conn.createStatement();
+ResultSet res = requete.executeQuery(sql);
+
+int compteur = 0;
+while (res.next()) {
+  compteur++;
+  String nom = res.getString("nom");
+  String email = res.getString("email");
+  String sortie = "Utilisateur no. " + compteur + " : " + nom + " (" + email + ")";
+  System.out.println(sortie);
+}
+```
+
+Et voici la sortie (sur le terminal) :
+
+```
+Utilisateur no. 1 : Gahide (gahide@sample.fr)
+Utilisateur no. 2 : Evrard (evrard@sample.fr)
+```
+
+
+
+
+
+
+
+
+
+- Consultez le lien suivant pour ensuite accéder à MySQL à partir de code Java : [Tuto indicatif pour l'utilisation de classes JDBC](https://www.codejava.net/java-se/jdbc/jdbc-tutorial-sql-insert-select-update-and-delete-examples)
+- 
+- **Partie 1** : à ignorer, vous devez déjà avoir une installation Java et MySQL correcte. Assurez-vous de bien relever les informations suivantes concernant la configuration du SGBRD (elles seront bien sûr nécessaires pour assurer la connexion Java/MySQL) : port, identifiant utilisateur, mot de passe, nom de la BDD
+- **Partie 2** : dans l'idéal, utilisez immédiatement la BDD correspondante à ce que vous essayez de faire. Sinon, n'importe quelle petite table, comme celle qui est présentée, fera l'affaire pour tester
+- **Partie 3** : Lisez (même si vous ne comprenez pas bien) cette partie décrivant les classes qui vont être utilisées. Essayez par la suite de vous y rapporter régulièrement pour comprendre ce qui se passe au fur et à mesure. Repérez les appels de méthodes statiques (directement sur une classe - Majuscule) et les appels de méthodes d'instances (sur des variables objets - minuscule)
+- **Partie 4** : premier objectif => une connexion réussie à la BDD via Java (le message doit s'afficher dans la console). Notez que la connexion à la BDD est encapsulée dans un block `try...catch` : c'est une construction Java qui permet de capturer les erreurs éventuelles qui peuvent se produire lors de la connexion et permettent de récupérer le contrôle du flux d'exécution (au lieu d'avoir un programme qui se termine de manière abrupte par un message d'erreur)
+- **Parties 5/6/7/8** : CRUD que vous adapterez à votre application. Chaque fonctionnalité de l'application sera modularisée dans sa (ses) propre(s) méthode(s). La connexion à la BDD, répétée à chaque requête, sera également encapsulée dans une méthode dédiée pour éviter la duplication de code
+- Une fois le CRUD opérationnel en ligne de commande, on pourra s'occuper de construire une interface graphique avec JavaFX conjugué à *Scene Builder* ; les méthodes réagissant aux événements s'occuperont de la logique métier et appelleront les méthodes d'accès à la BDD quand elles en auront besoin
 
 
 
@@ -381,8 +509,6 @@ Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur un nouveau bo
 
 
 ## Détails de l'implémentation d'une nouvelle vue
-
-  - on peut ensuite utiliser cette donnée dans un traitement quelconque :
 
 ```java
 @FXML
@@ -438,75 +564,3 @@ void btnValiderClic(ActionEvent event) {
   }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Accès à une base de données via JDBC
-
-### JDBC
-
-- JDBC (_Java Database Connectivity_) est une interface de programmation Java qui permet aux applications d'accéder à une base de données relationnelle
-- Des pilotes JDBC sont disponibles pour tous les systèmes connus de bases de données relationnelles, comme MySQL
-- Pour pouvoir utiliser facilement JDBC, votre projet de départ doit être généré par Maven
-- Dans votre projet généré par Maven :
-  - ouvrez la palette de commande
-  - tapez `maven`
-  - sélectionnez _Add a dependency_
-  - trouvez `mysql-connector-java`
-  - la dépendance devrait être ajoutée au fichier `pom.xml` :
-
-```
-<dependencies>
-    ...
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>X.Y.Z</version>
-    </dependency>
-    ...
-</dependencies>
-```
-
-- Si votre projet dispose d'un fichier `module-info.java` (s'il s'agit d'un projet javafx notamment), modifiez-le pour ajouter `java.sql` (en ne touchant surtout pas au reste du fichier) :
-
-```java
-module fr... {
-  // requires...
-  requires java.sql;
-	// opens...
-	// exports...
-}
-```
-
-- Votre projet est maintenant configuré pour reconnaître du code JDBC d'accès à une BDD
-- Consultez le lien suivant pour ensuite accéder à MySQL à partir de code Java : [Tuto indicatif pour l'utilisation de classes JDBC](https://www.codejava.net/java-se/jdbc/jdbc-tutorial-sql-insert-select-update-and-delete-examples)
-- Attention, dans la suite, lorsque vous résolvez les imports d'objets SQL manquants (avec la petite ampoule ou bien `Ctrl+.`), sélectionnez le package `java.sql`
-- **Partie 1** : à ignorer, vous devez déjà avoir une installation Java et MySQL correcte. Assurez-vous de bien relever les informations suivantes concernant la configuration du SGBRD (elles seront bien sûr nécessaires pour assurer la connexion Java/MySQL) : port, identifiant utilisateur, mot de passe, nom de la BDD
-- **Partie 2** : dans l'idéal, utilisez immédiatement la BDD correspondante à ce que vous essayez de faire. Sinon, n'importe quelle petite table, comme celle qui est présentée, fera l'affaire pour tester
-- **Partie 3** : Lisez (même si vous ne comprenez pas bien) cette partie décrivant les classes qui vont être utilisées. Essayez par la suite de vous y rapporter régulièrement pour comprendre ce qui se passe au fur et à mesure. Repérez les appels de méthodes statiques (directement sur une classe - Majuscule) et les appels de méthodes d'instances (sur des variables objets - minuscule)
-- **Partie 4** : premier objectif => une connexion réussie à la BDD via Java (le message doit s'afficher dans la console). Notez que la connexion à la BDD est encapsulée dans un block `try...catch` : c'est une construction Java qui permet de capturer les erreurs éventuelles qui peuvent se produire lors de la connexion et permettent de récupérer le contrôle du flux d'exécution (au lieu d'avoir un programme qui se termine de manière abrupte par un message d'erreur)
-- **Parties 5/6/7/8** : CRUD que vous adapterez à votre application. Chaque fonctionnalité de l'application sera modularisée dans sa (ses) propre(s) méthode(s). La connexion à la BDD, répétée à chaque requête, sera également encapsulée dans une méthode dédiée pour éviter la duplication de code
-- Une fois le CRUD opérationnel en ligne de commande, on pourra s'occuper de construire une interface graphique avec JavaFX conjugué à *Scene Builder* ; les méthodes réagissant aux événements s'occuperont de la logique métier et appelleront les méthodes d'accès à la BDD quand elles en auront besoin
