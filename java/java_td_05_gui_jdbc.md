@@ -50,7 +50,7 @@ Ce TP vous donnera les éléments nécessaires pour :
 
 Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (panneau « Extensions » sur la gauche) :
 
-- `JavaFX Support` : permet d'éviter quelques avertissements (_warnings_) issus de bugs dans VS Code
+- `JavaFX Support` : permet d'éviter quelques avertissements (_warnings_) issus de bugs
 - `SceneBuilder extension for Visual Studio Code` : permet simplement d'ouvrir par clic-droit un fichier FXML directement dans Scene Builder
 
 ### Ouverture d'une vue sous Scene Builder
@@ -59,7 +59,7 @@ Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (p
 - Ce fichier représente donc, sous forme de code FXML, l'interface graphique que vous voyez lorque l'application est lancée (la _Primary View_)
 - Le format FXML a une structure hiérarchisée de type _markup_ (comme HTML, c'est un dérivé de XML)
 - En général, on n'édite pas directement du code FXML (même si c'est tout à fait possible) : on utilise Scene Builder qui va permettre de modifier l'interface de manière beaucoup plus visuelle et intuitive
-- Faites un clic-droit sur `primary.fxml` et sélectionnez _Open in Scene Builder_
+- Faites un clic-droit sur `primary.fxml` et sélectionnez _Open in Scene Builder_ (disponible une fois installée l'extension de la section précédente)
 - SB s'ouvre en chargeant le fichier concerné
 - L'interface graphique de la vue `primary.fxml` s'affiche au milieu de l'application
 
@@ -153,13 +153,14 @@ public class App extends Application {
 - Il y a donc une hiérarchie depuis la racine (_root_) qui est très souvent un conteneur
 - Les conteneurs peuvent contenir récursivement d'autres containers, et ainsi de suite, sans limite de profondeur ; cela permet de concevoir des écrans potentiellement très complexes
 - Par exemple, on pourra avoir :
-  - un conteneur `VBox` (layout vertical)
+  - un conteneur `VBox` (vertical)
   - qui contiendra lui-même :
    - un `Label` pour afficher un titre
    - une `ListView` pour afficher une liste de clients
    - un `TextField` (champ texte éditable) qui permettra de rechercher un client par son nom
-   - un conteneur `HBox` (layout horizontal)
+   - un conteneur `HBox` (horizontal)
     - qui lui-même contiendra plusieurs boutons empilés horizontalement
+- Le sous-panneau _Layout_ de droite 
 
 ## Les conteneurs
 
@@ -191,7 +192,7 @@ Le panneau _Library_ contient plusieurs catégories de _controls_, dont les cont
 
 ### BorderPane
 
-- Permet de créer un layout avec cinq sections : haut, bas, gauche, droite, centre (potentiellement vides)
+- Permet de créer une disposition avec cinq sections : haut, bas, gauche, droite, centre (potentiellement vides)
 - Chaque section est elle-même un conteneur pouvant contenir d'autres éléments
 - C'est ainsi qu'est définie l'interface de SB, par exemple, avec ses panneaux sur les côtés
 
@@ -333,79 +334,54 @@ Tout est maintenant « branché », il reste à écrire le code qui doit eff
   - entrez la valeur 45 dans le champ texte
   - cliquez sur le bouton _Pivoter_
   - le champ texte devrait pivoter de 45 degrés
+
+### Conseils
+
 - Retenez comment l'appel `txtPivot.getText()` a permis de récupérer le contenu du champ texte
   - l'appel `setText("toto")` permettrait par exemple de modifier le contenu du champ texte en `"toto"`
-  - n'hésitez pas à regarder ce qui est disponible lorsque vous tapez `unControl.` dans l'IDE, essayez d'explorer les possibilités et de trouver par vous-même ce que vous cherchez
-- Notez que ce code ne gère pas vraiment les erreurs : si l'utilisateur entre une valeur non entière, une exception (erreur) est lancée, mais les applications avec interface graphique se contentent « d'avaler » l'erreur si elle n'est pas gérée et continuent à fonctionner si possible (ce n'est évidemment pas une bonne pratique de développement)
+- De manière générale, regardez ce qui est disponible lorsque vous tapez `unControl.` dans l'IDE ; essayez d'explorer les possibilités et de trouver par vous-même ce que vous cherchez
+- Notez que le code précédent ne gère pas vraiment les erreurs : si l'utilisateur entre une valeur non-entière, une exception (erreur) est lancée, mais les applications avec interface graphique se contentent « d'avaler » l'erreur si elle n'est pas gérée et continuent à fonctionner si possible (ce n'est évidemment pas une bonne pratique de développement)
 - Notez la façon dont les éléments graphiques ont été nommés dans cet exemple : un préfixe indique de quel type d'élément il s'agit
   - `txt` pour un champ texte, `btn` pour un bouton, etc.
   - ce n'est pas obligatoire mais c'est une bonne convention
 - Notez que **chaque variable et chaque méthode déclarée en FXML (depuis SB) doit avoir l'annotation `@FXML`** côté controller sinon Java ne considérera pas que les deux sont reliés (mettre plusieurs déclarations de variables sous une seule annotation `FXML` n'est pas suffisant)
+- N'attendez pas d'avoir fini complètement la vue avant de commencer à implémenter des fonctionnalités
+  - quand vous avez une vue suffisamment détaillée pour la mise en place d'au moins une fonctionnalité, il est temps de passer à la logique côté Java sous VS Code, pour coder le _controller_ qui va correspondre à cette vue
+  - bien sûr, quand on travaille en groupe, un dev peut travailler sur l'UI pendant qu'un autre travaille sur le code
+- Donnez des noms expressifs :
+  - à vos vues FXML (ex : `Connexion.fxml`)
+  - aux controlleurs associés (`ConnexionController.java`)
+  - aux `fx:id` des éléments graphiques (`btnValider`)
+  - aux méthodes-événement (`btnValiderClick`)
 
-## Testez par vous-même
+## À faire vous-même
 
-- Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur un nouveau bouton _TEST_ :
-  - la couleur du texte du bouton passe en rouge
-  - le texte du label indiquant `Secondary View` du dessus se change en `COUCOU !`
-  - la vue ne change plus vers la _Primary View_
+Dans `secondary.fxml`, faire en sorte que, lorsque l'on clique sur un nouveau bouton _TEST_ :
 
-## Détails de l'implémentation d'un nouvel écran
+- la couleur du texte du bouton passe en rouge
+- le texte du label indiquant `Secondary View` du dessus se change en `COUCOU !`
+- la vue ne change plus vers la _Primary View_
 
-Voici donc les étapes à considérer lorque vous concevez un nouvel écran :
 
-- Partir d'un fichier .fxml existant (en le copiant) ou bien en créant un fichier .fxml vierge sous SB
-  - rappel : les fichiers .fxml doivent être enregistrés dans un sous-répertoire (correspondant au nom de votre package) du répertoire `resources` de votre projet pour que Java les trouvent (par exemple `mon-projet\src\main\resources\fr\pgah\Connexion.fxml`)
-- Donner un nom expressif à ce fichier .fxml
-  - (donner un nom expressif à tout ce qu'on peut nommer est (très) important en programmation)
-- Créer l'interface graphique en glissant-déposant les _controls_ dont vous avez besoin
-- Utiliser les panneaux _Proprerties_ et _Layout_ de droite pour adapter l'élément à vos besoins (texte affiché, couleur, taille... en fonction de la nature de l'élément)
-- Utiliser le troisième panneau _Code_ de droite pour :
-  - donner un nom à l'élément grâce à l'attribut `fx:id` (uniquement si vous avez besoin d'y accéder depuis le code Java par la suite, par exemple pour récupérer le contenu d'un _textfield_)
-  - indiquer un nom de méthode qui se produira lorsque l'élément sera « actionné » grâce à l'attribut `On Action` ou un autre désignant l'événement (uniquement si vous voulez réagir à une action sur cet élément, le plus souvent pour un clic de bouton)
-- Quand vous avez un écran suffisamment rempli pour la mise en place d'au moins une fonctionnalité, il est temps de passer à la logique côté Java sous VS Code, pour coder le _controller_ qui va correspondre à cette vue
-- Mais d'abord, pour se faciliter la tâche, on va demander à SB de nous montrer à quoi devra ressembler le code du _controller_ pour qu'il prenne en compte tous les éléments que l'on a nommés et les méthodes que l'on a mises en place
-  - menu `View/Show Sample Controller Skeleton`
-  - copier le code du _controller_ présenté
-  - voici un exemple avec un champ texte nommé `txtPrenom` et un bouton nommé `btnValider` ; on a également indiqué qu'un clic sur ce bouton lance la méthode `btnValiderClic`
 
-```java
-package fr.pgah;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
 
-public class TestController {
 
-  @FXML
-  private TextField txtPrenom;
 
-  @FXML
-  private Button btnValider;
 
-  @FXML
-  void btnValiderClic(ActionEvent event) {
-  }
-}
-```
 
-- Notez la façon dont les éléments graphiques sont nommés : un préfixe indique de quel type d'élément il s'agit
-  - `txt` pour un champ texte, `btn` pour un bouton, etc.
-  - ce n'est pas obligatoire mais c'est une bonne convention
-- Sous VS Code, créer un nouveau fichier aux côté du fichier `App.java`, dans le répertoire principal de votre package
-  - même nom que pour le fichier .fxml, avec le suffixe `Controller` (ex: `ConnexionController.java`)
-  - y coller le code du « squelette » donné par SB
-- N'oubliez pas que **chaque variable et chaque méthode déclarée en FXML (depuis SB) doit avoir l'annotation `@FXML`** sinon Java ne considérera pas que les deux sont reliés (mettre plusieurs déclarations de variables sous une seule annotation `FXML` n'est pas suffisant)
-- Pour relier effectivement le fichier FXML avec ce _controller_, retourner dans SB
-  - panneau _Controller_, en bas à gauche
-  - indiquer le nom complet de la classe _controller_ nouvellement définie
-  - conseil : utiliser le _dropdown_ pour être sûr de ne pas se tromper
-- Il faut maintenant implémenter les méthodes d'action pour effectuer les traitements correspondants
-- Souvent, on a besoin de récupérer des informations depuis l'interface graphique pour effectuer le traitement
-  - ex : récupérer le contenu d'un champ texte
-  - il faut « interroger » l'objet correspondant
-  - ex : `txtPrenom.getText()` retourne le contenu du champ texte
+
+
+
+
+
+
+
+
+
+
+## Détails de l'implémentation d'une nouvelle vue
+
   - on peut ensuite utiliser cette donnée dans un traitement quelconque :
 
 ```java
