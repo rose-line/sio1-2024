@@ -257,7 +257,7 @@ Nous allons illustrer cette procédure au travers d'un exemple. Imaginons que no
 - Ajoutez un `TextField`
 - Donnez une marge haute et une marge basse de 70 au `TextField`, afin de lui laisser de l'espace lorsqu'il va pivoter
 
-![javafx_pivot0](javafx_pivot0.png)
+![javafx_pivot0](assets/javafx_pivot0.png)
 
 ### 1. Nommer les _controls_ concernés
 
@@ -334,7 +334,7 @@ Tout est maintenant « branché », il reste à écrire le code qui doit eff
   - cliquez sur le bouton _Pivoter_
   - le champ texte devrait pivoter de 45 degrés
 
-![javafx_pivot45](javafx_pivot45.png)
+![javafx_pivot45](assets/javafx_pivot45.png)
 
 ## Conseils
 
@@ -450,7 +450,7 @@ Une fois la connexion établie, on a un objet `Connection` appelé ici `conn` qu
 
 Voici du code permettant de faire une requête d'interrogation à partir d'un objet `Connection` `conn` construit précédemment à partir de la table exemple suivante :
 
-![jdbc_sample_utilisateurs](jdbc_sample_utilisateurs.png)
+![jdbc_sample_utilisateurs](assets/jdbc_sample_utilisateurs.png)
 
 ```java
 String sql = "SELECT nom, email FROM utilisateurs";
