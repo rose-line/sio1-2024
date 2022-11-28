@@ -450,7 +450,7 @@ Une fois la connexion établie, on a un objet `Connection` appelé ici `conn` qu
 
 Voici du code permettant de faire une requête d'interrogation à partir d'un objet `Connection` `conn` construit précédemment à partir de la table exemple suivante :
 
-![jdbc_sample_utilisateurs](assets/jdbc_sample_utilisateurs.png)
+![jdbc_sample_utilisateur](assets/jdbc_sample_utilisateur.png)
 
 ```java
 String sql = "SELECT nom, email FROM utilisateurs";
