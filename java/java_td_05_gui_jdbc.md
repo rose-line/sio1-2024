@@ -37,7 +37,7 @@ Commencez par parcourir le TP en faisant les installations nécessaires et en te
 
 ## Création de projet JavaFX sous Maven (pour **VS Code** uniquement)
 
-- Ouvrez VS Code ; aucun projet ne doit être chargé
+- Ouvrez VS Code ; aucun projet ne doit être chargé (Fermerle répertoire si un projet est ouvert - _File/Close Folder_)
 - Palette de Commande (_Ctrl+Shift+P_) -> "_Create Maven Project_"
 - "_More..._"
 - Recherchez "javafx" et sélectionnez "javafx-archetype-fxml" de _org.openjfx_
@@ -72,6 +72,7 @@ Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (p
 
 - `JavaFX Support` : permet d'éviter quelques avertissements (_warnings_) issus de bugs
 - `SceneBuilder extension for Visual Studio Code` : permet simplement d'ouvrir par clic-droit un fichier FXML directement dans Scene Builder
+  - il faut indiquer à cette extension où se trouve l'exécutable de SB sur le système : suivez les instructions de configuration du chemin sur la page de l'extension
 
 ## Ouverture d'une vue sous Scene Builder
 
