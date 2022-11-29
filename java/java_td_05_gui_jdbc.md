@@ -600,3 +600,5 @@ try {
 // Finalement, on peuple la ListView avec la liste d'utilisateurs construite
 lvUtilisateurs.setItems(utilisateurs);
 ```
+
+![javafx_simple_listviw](assets/javafx_simple_listview.png)
