@@ -39,18 +39,18 @@ Commencez par parcourir le TP en faisant les installations nécessaires et en te
 
 - Ouvrez VS Code ; aucun projet ne doit être chargé
   - si un projet est ouvert, fermez le répertoire : _File/Close Folder_
-- Palette de Commande (_Ctrl+Shift+P_) -> "_Create Maven Project_"
+- Palette de Commande (_Ctrl+Shift+P_), puis tapez "_Create Maven Project_"
 - "_More..._"
 - Recherchez "javafx" et sélectionnez "javafx-archetype-fxml" de _org.openjfx_
 - Choisir la version la plus récente proposée
 - Dans la fenêtre qui s'ouvre, sélectionnez le dossier contenant vos projets Java (un nouveau répertoire de projet y sera créé)
 - group-id : _fr.dampierre_ (ou un autre nom de domaine fictif inversé, pas de majuscules, pas d'espaces)
 - artefact-id : _projetjavafx_ (ou votre nom de projet, pas de majuscules, pas d'espaces)
-- dans le terminal qui s'ouvre, validez la version 1.0 (_Define value for property 'version'_) en tapant "Entrée"
-- package : (tapez "Entrée" si demandé)
+- **dans le terminal qui s'ouvre**, validez la version 1.0 (_Define value for property 'version'_)
+- package : validez si demandé
 - Confirmez par Y
-- BUILD SUCCESS ! (Non ? Vérifiez le JDK installé, et la variable d'environnement utilisateur `JAVA_HOME`)
-- VS Code vous propose d'ouvrir le projet nouvellement créé (sinon, ouvrez-le manuellement)
+- BUILD SUCCESS ! (Non ? Vérifiez le JDK installé, et la variable d'environnement utilisateur `JAVA_HOME`, voir TP 00)
+- VS Code vous propose, en bas à droite, d'ouvrir le projet nouvellement créé (sinon, ouvrez-le manuellement)
 
 ## Lancement de l'application
 
