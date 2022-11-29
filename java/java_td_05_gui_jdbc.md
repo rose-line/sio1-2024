@@ -7,6 +7,26 @@ Ce TP vous donnera les éléments nécessaires pour :
 - concevoir une interface graphique et gérer les interactions utilisateur en utilisant le framework **JavaFX**
 - accéder au SGBDR MySQL (Système de Gestion de Bases de Données Relationnelles) afin de manipuler des données depuis une application Java grâce à **JDBC** (_Java Database Connectivity_)
 
+## Travail à faire
+
+### 1. Prise en main
+
+Commencez par parcourir le TP en faisant les installations nécessaires et en testant toutes les fonctionnalités présentées
+
+### 2. Implémentation GSB
+
+- Reprenez le **contexte GSB** sur lequel vous travaillez en Bases de Données
+- Implémentez en JavaFX les maquettes du document 7 fourni :
+  - **Liste des agents**
+   - d'abord une liste de noms simples
+   - puis une liste contenant toutes les informations de la maquette
+   - puis la possibilité de filtrer selon le secteur
+  - **Fiche agent**
+   - d'abord les informations textuelles simples
+   - puis les boutons radio
+   - puis les listes déroulantes
+   - puis la possibilité d'enregistrer les modifications
+
 ## Prérequis
 
 - Visual Studio Code avec les extensions Java fonctionnelles
@@ -424,25 +444,26 @@ Voici du code qui se connecte à une base de données :
 
 ```java
 String dbURL = "jdbc:mysql://localhost:3306/sample";
-String utilisateur = "monid";
+String nomUtilisateur = "monid";
 String mdp = "monmotdepassefort";
 
 try {
   // Connexion en passant les informations spécifiées précédemment
-  Connection conn = DriverManager.getConnection(dbURL, utilisateur, mdp);
+  Connection conn = DriverManager.getConnection(dbURL, nomUtilisateur, mdp);
   // Si on est bien connecté à la DB
   if (conn != null) {
     // On affiche un petit message sur le terminal
     System.out.println("Connexion réussie !");
   }
 } catch (SQLException ex) {
-  // Ici, on a du code de traitement d'erreur
-  // On ne s'en occupe pas pour le moment mais le bloc try/catch est nécessaire
+  // Code de traitement d'erreur
   ex.printStackTrace();
 }
 ```
 
-Une fois la connexion établie, on a un objet `Connection` appelé ici `conn` que l'on pourra utiliser pour exécuter des requêtes SQL.
+- C'est votre premier objectif => une connexion réussie à la BDD via Java (le message doit s'afficher dans la console)
+- Notez que la connexion à la BDD (et tout code accédant à la BDD en général) est encapsulée dans un block `try...catch` : c'est une construction Java qui permet de capturer les erreurs éventuelles qui peuvent se produire lors de la connexion et permettent de récupérer le contrôle du flux d'exécution (au lieu d'avoir un programme qui se termine de manière abrupte par un message d'erreur, on va dans le `catch` pour traiter l'erreur)
+- Une fois la connexion établie, on a un objet `Connection` appelé ici `conn` que l'on pourra utiliser pour exécuter des requêtes SQL.
 
 ## Requête d'interrogation
 
@@ -453,18 +474,28 @@ Voici du code permettant de faire une requête d'interrogation à partir d'un ob
 ![jdbc_sample_utilisateur](assets/jdbc_sample_utilisateur.png)
 
 ```java
+// Définition de la requête qui va être faite
 String sql = "SELECT nom, email FROM utilisateurs";
+// Création d'un objet Statement qui représente une requête
 Statement requete = conn.createStatement();
+// Exécution de la requête
+// et récupération des résultats dans un ResultSet
 ResultSet res = requete.executeQuery(sql);
 
 int compteur = 0;
+// On parcourt le ResultSet en appelant la méthode next() au fur et à mesure
+// À chaque fois, la variable res "pointe" sur le résultat suivant dans la liste
+// renvoyée par le SELECT
 while (res.next()) {
   compteur++;
-  String nom = res.getString("nom");
-  String email = res.getString("email");
+  String nom = res.getString("nom");     // récupération du champ "nom" pour ce résultat
+  String email = res.getString("email"); // récupération de l'email
+  // Construction et affichage de la sortie
   String sortie = "Utilisateur no. " + compteur + " : " + nom + " (" + email + ")";
   System.out.println(sortie);
 }
+// Lorsqu'il n'y a plus de lignes dans le ResultSet, next() renvoie false
+// et on sort de la boucle while
 ```
 
 Et voici la sortie (sur le terminal) :
@@ -474,93 +505,99 @@ Utilisateur no. 1 : Gahide (gahide@sample.fr)
 Utilisateur no. 2 : Evrard (evrard@sample.fr)
 ```
 
-
-
-
-
-
-
-
-
-- Consultez le lien suivant pour ensuite accéder à MySQL à partir de code Java : [Tuto indicatif pour l'utilisation de classes JDBC](https://www.codejava.net/java-se/jdbc/jdbc-tutorial-sql-insert-select-update-and-delete-examples)
+- Ici, on a appelé sur le `ResultSet` la méthode `getString()` pour récupérer le nom et l'email, mais il existe d'autres méthodes pour récupérer d'autres types :
+  - `getInt()`
+  - `getFloat()`
+  - `getDate()`
+  - `getTimestamp()`
+  - ...
+- On aurait pu aussi récupérer ces informations en utilisant les index (position dans le SELECT) :
+  - `res.getString(1)` pour le nom
+  - et `res.getString(2)` pour l'email
+  - cela est légèrement plus performant, mais moins lisible
 - 
-- **Partie 1** : à ignorer, vous devez déjà avoir une installation Java et MySQL correcte. Assurez-vous de bien relever les informations suivantes concernant la configuration du SGBRD (elles seront bien sûr nécessaires pour assurer la connexion Java/MySQL) : port, identifiant utilisateur, mot de passe, nom de la BDD
-- **Partie 2** : dans l'idéal, utilisez immédiatement la BDD correspondante à ce que vous essayez de faire. Sinon, n'importe quelle petite table, comme celle qui est présentée, fera l'affaire pour tester
-- **Partie 3** : Lisez (même si vous ne comprenez pas bien) cette partie décrivant les classes qui vont être utilisées. Essayez par la suite de vous y rapporter régulièrement pour comprendre ce qui se passe au fur et à mesure. Repérez les appels de méthodes statiques (directement sur une classe - Majuscule) et les appels de méthodes d'instances (sur des variables objets - minuscule)
-- **Partie 4** : premier objectif => une connexion réussie à la BDD via Java (le message doit s'afficher dans la console). Notez que la connexion à la BDD est encapsulée dans un block `try...catch` : c'est une construction Java qui permet de capturer les erreurs éventuelles qui peuvent se produire lors de la connexion et permettent de récupérer le contrôle du flux d'exécution (au lieu d'avoir un programme qui se termine de manière abrupte par un message d'erreur)
-- **Parties 5/6/7/8** : CRUD que vous adapterez à votre application. Chaque fonctionnalité de l'application sera modularisée dans sa (ses) propre(s) méthode(s). La connexion à la BDD, répétée à chaque requête, sera également encapsulée dans une méthode dédiée pour éviter la duplication de code
-- Une fois le CRUD opérationnel en ligne de commande, on pourra s'occuper de construire une interface graphique avec JavaFX conjugué à *Scene Builder* ; les méthodes réagissant aux événements s'occuperont de la logique métier et appelleront les méthodes d'accès à la BDD quand elles en auront besoin
 
+## Requête d'insertion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Détails de l'implémentation d'une nouvelle vue
+Ce code insère un nouvel utilisateur avec des données « en dur » (sauf la date de création). En général, vous voudrez plutôt que les données à insérer proviennent de variables qui auront été définies notamment en récupérant des valeurs entrées par l'utilisateur dans une interface graphique.
 
 ```java
-@FXML
-void btnValiderClic(ActionEvent event) {
-  String lePrenom = txtPrenom.getText();
-  // Affichage sur la console pour vérification
-  System.out.println("Prénom récupéré :" + lePrenom);
-  // Puis on peut utiliser lePrenom dans une requête SQL
-  // Code de connexion BDD non reproduit...
-
-  // Préparation de la requête
-  String req = "SELECT * FROM Users WHERE prenom='" + lePrenom + "'";
-  Statement statement = conn.createStatement();
-  // Exécution de la requête
-  ResultSet result = statement.executeQuery(req);
-  // On boucle pour traiter tous les résultats
-  while (result.next()){
-    // Récup du num et de l'email depuis cet enregistrement
-    String nom = result.getString("nom");
-    String email = result.getString("email");
-    // Simple affichage dans la console de sortie
-    System.out.println("Nom : " + nom + " ; email : " + email));
-  }
+// Construction de la requête d'insertion
+String sql = "INSERT INTO utilisateurs (nom, date_creation, datenaiss, salaire, email) VALUES ('Toto', '"
+                + LocalDate.now() + "', '2021-01-01', 5000, 'toto@sample.fr')";
+Statement requete = conn.createStatement();
+// Exécution de la requête
+// Et récupération du nombre d'insertions effectives (ici 1)
+int nbInsertions = requete.executeUpdate(sql);
+// La variable nbInsertions nous permet de savoir si l'insertion s'est bien passée
+if (nbInsertions > 0) {
+  System.out.println("Un nouvel utilisateur a bien été ajouté");
 }
 ```
 
-- Les `println` sont utiles pour suivre l'avancée des opérations et vérifier que les données récupérées sont cohérentes, mais on va aussi vouloir mettre à jour l'écran JavaFX avec ces données
-- Il faut de nouveau aller interroger les objets qui correspondent aux éléments à mettre à jour pour savoir comment les modifier
-  - une façon d'explorer est de taper `txtPrenom.` dans l'IDE : VS Code va nous montrer toutes les méthodes pouvant être appelées depuis cet objet
-  - on peut aussi [se renseigner sur Internet](http://tutorials.jenkov.com/javafx/textfield.html) sur l'usage du _control_ JavaFX en question
-  - par exemple, pour afficher dans un `TextField` une informations d'un employé dont a a récupéré l'id :
+## Requête de mise à jour
+
+Ce code change l'email d'un utilisateur spécifique. De nouveau, l'id de l'utilisateur et le nouvel email proviendront plus sûrement de variables. 
 
 ```java
-@FXML
-void btnValiderClic(ActionEvent event) {
-  // Récupération de l'id depuis un champ texte
-  int num = txtNumEmploye.getText();
-  // Code de connexion BDD non reproduit...
-  // Préparation de la requête
-  String req = "SELECT prenom FROM Employes WHERE id='" + num + "'";
-  Statement statement = conn.createStatement();
-  // Exécution de la requête
-  ResultSet result = statement.executeQuery(req);
-  // Cette fois on n'a qu'un seul résultat (au plus)
-  // puisqu'on a filtré sur la clé primaire
-  // On teste pour savoir si on a effectivement un résultat
-  if (rs.next())
-  {
-    // Récup du prénom depuis le résultat de la requête
-    String prenom = rs.getString("prenom");
-    // Mise à jour du champ texte JavaFX avec setText
-    txtPrenom.setText(prenom);
-  }
+String sql = "UPDATE utilisateurs SET email='gahide@sample.com' WHERE id=1";
+Statement requete = conn.createStatement();
+int nbUpdates = requete.executeUpdate(sql);
+if (nbUpdates > 0) {
+  System.out.println("L'utilisateur d'id 1 a bien été mis à jour");
 }
+```
+
+## Requête de suppression
+
+Ce code supprime le premier utilisateur trouvé. Encore une fois, cette requête d'illustration est complètement naïve et ne devra jamais apparaître telle quelle dans du code de production.
+
+```java
+String sql = "DELETE FROM utilisateurs LIMIT 1";
+Statement requete = conn.createStatement();
+int nbSuppressions = requete.executeUpdate(sql);
+if (nbSuppressions > 0) {
+  System.out.println("Un utilisateur a bien été supprimé");
+}
+```
+
+## Affichage d'une liste en JavaFX
+
+- Une fois que le CRUD fonctionne sur le terminal, on va vouloir afficher des listes depuis l'interface graphique
+- On va pour cela utiliser le _control_ `ListView`
+- L'extrait suivant reprend le code de la requête d'interrogation précédente en y ajoutant du code pour peupler une `ListView` JavaFX
+- Prérequis : il faut, dans la vue correspondante au controller sur lequel va s'exécuter ce code, qu'il y ait un _control_ `ListView` ayant un `fx:id` nommé `lvUtilisateurs`
+
+```java
+String dbURL = "jdbc:mysql://localhost:3306/sample";
+String nomUtilisateur = "monid";
+String mdp = "monmotdepassefort";
+
+// Liste dont va se servir la ListView (initialement vide)
+ObservableList<String> utilisateurs = FXCollections.observableArrayList();
+
+try {
+  Connection conn = DriverManager.getConnection(dbURL, nomUtilisateur, mdp)
+  if (conn != null) {
+    System.out.println("Connected");
+    String sql = "SELECT nom, email FROM utilisateurs";
+    Statement requete = conn.createStatement();
+    ResultSet res = requete.executeQuery(sql);
+
+    int compteur = 0;
+    while (res.next()) {
+      compteur++;
+      String nom = res.getString("nom");
+      String email = res.getString("email");
+      String sortie = "Utilisateur no. " + compteur + " : " + nom + " (" + email + ")";
+      // On ajoute cette string à la liste
+      utilisateurs.add(sortie);
+      System.out.println(sortie);
+    }
+  }
+} catch (SQLException ex) {
+  ex.printStackTrace();
+}
+// Finalement, on peuple la ListView avec la liste d'utilisateurs construite
+lvUtilisateurs.setItems(utilisateurs);
 ```
