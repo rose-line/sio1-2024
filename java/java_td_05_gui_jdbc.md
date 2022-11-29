@@ -37,7 +37,8 @@ Commencez par parcourir le TP en faisant les installations nécessaires et en te
 
 ## Création de projet JavaFX sous Maven (pour **VS Code** uniquement)
 
-- Ouvrez VS Code ; aucun projet ne doit être chargé (Fermerle répertoire si un projet est ouvert - _File/Close Folder_)
+- Ouvrez VS Code ; aucun projet ne doit être chargé
+  - si un projet est ouvert, fermez le répertoire : _File/Close Folder_
 - Palette de Commande (_Ctrl+Shift+P_) -> "_Create Maven Project_"
 - "_More..._"
 - Recherchez "javafx" et sélectionnez "javafx-archetype-fxml" de _org.openjfx_
