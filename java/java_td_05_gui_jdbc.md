@@ -276,6 +276,7 @@ Nous allons illustrer cette procédure au travers d'un exemple. Imaginons que no
 
 - Sous SB, ajoutez un `Button` avec le texte `Pivoter` à la vue `primary`
 - Ajoutez un `TextField`
+  - **Attention**, il y a deux types de `TextField` disponibles dans la bibliothèque de _controls_ : ***ne prenez pas le bleu***
 - Donnez une marge haute et une marge basse de 70 au `TextField`, afin de lui laisser de l'espace lorsqu'il va pivoter
 
 ![javafx_pivot0](assets/javafx_pivot0.png)
