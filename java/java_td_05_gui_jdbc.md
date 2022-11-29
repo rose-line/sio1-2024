@@ -18,14 +18,14 @@ Commencez par parcourir le TP en faisant les installations nécessaires et en te
 - Reprenez le **contexte GSB** sur lequel vous travaillez en Bases de Données
 - Implémentez en JavaFX les maquettes du document 7 fourni :
   - **Liste des agents**
-   - d'abord une liste de noms simples
-   - puis une liste contenant toutes les informations de la maquette
-   - puis la possibilité de filtrer selon le secteur
+    - d'abord une liste de noms simples
+    - puis une liste contenant toutes les informations de la maquette
+    - puis la possibilité de filtrer selon le secteur
   - **Fiche agent**
-   - d'abord les informations textuelles simples
-   - puis les boutons radio
-   - puis les listes déroulantes
-   - puis la possibilité d'enregistrer les modifications
+    - d'abord les informations textuelles simples
+    - puis les boutons radio
+    - puis les listes déroulantes
+    - puis la possibilité d'enregistrer les modifications
 
 ## Prérequis
 
