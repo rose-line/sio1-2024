@@ -16,6 +16,7 @@
 - [02 Structures conditionnelles](java_td_02_if.md)
 - [03 Structures répétitives](java_td_03_boucles.md)
 - [04 Jeu « Deviner le nombre »](java_td_04_deviner_nombre.md)
+- [05 Conception d'une interface graphique et accès à une base de données en Java (JavaFX et JDBC](java_td_05_gui_jdbc.md)
 
 ## Devoirs
 
