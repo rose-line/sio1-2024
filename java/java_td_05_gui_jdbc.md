@@ -601,4 +601,6 @@ try {
 lvUtilisateurs.setItems(utilisateurs);
 ```
 
-![javafx_simple_listviw](assets/javafx_simple_listview.png)
+Ce code peuple la _ListView_ dont le `fx:id` est `lvUtilisateurs`. Il est utilisé lors de l'appui sur le bouton _Charger_ de cette vue :
+
+![javafx_simple_listview](assets/javafx_simple_listview.png)
