@@ -89,11 +89,11 @@ Avant d'aller plus loin, installez ces deux extensions pratiques sous VS Code (p
   - au centre : l'interface graphique sur laquelle on travaille
   - en haut à gauche (_Library_) : la bibliothèque de ***controls***, qui sont les éléments graphiques (label, bouton, liste déroulante...)
   - en bas à gauche : la hiérarchie, qui retranscrit tous les _controls_ qui forment actuellement l'interface, sous forme d'arborescence
-   - certains _controls_, comme la `VBox`, sont des « conteneurs » qui peuvent contenir d'autres _controls_ (voir _Layout et hiérarchie_, plus bas)
-   - par exemple, ici, la `VBox` est une « boîte verticale » qui permet d'empiler les _controls_ les uns en dessous des autres
-   - la `VBox` contient deux _controls_ :
-    - un `Label` qui permet d'afficher le texte _Primary View_
-    - un `Button` qui permettra de changer de vue
+    - certains _controls_, comme la `VBox`, sont des « conteneurs » qui peuvent contenir d'autres _controls_ (voir _Layout et hiérarchie_, plus bas)
+    - par exemple, ici, la `VBox` est une « boîte verticale » qui permet d'empiler les _controls_ les uns en dessous des autres
+    - la `VBox` contient deux _controls_ :
+      - un `Label` qui permet d'afficher le texte _Primary View_
+      - un `Button` qui permettra de changer de vue
   - à droite (_Inspector_) : notamment les propriétés du _control_ actuellement sélectionné ; c'est là qu'on va modifier le texte d'un label, les dimensions d'un bouton, appliquer un effet, etc. (beaucoup de choses sont possibles pour chaque _control_)
 - Le processus d'ajout de _control_ à l'interface consiste donc à :
   - localiser l'élément souhaité dans la _library_
@@ -161,9 +161,9 @@ public class App extends Application {
   - la méthode `main` (point de départ du programme) se contente d'appeler la méthode `launch` de JavaFX
   - la méthode `launch`, dont on ne voit pas la définition ici, va en fait appeler elle-même la méthode `start`, que l'on peut considérer comme le point de départ fonctionnel du programme
   - la méthode `start`
-   - crée une `Scene` (`new Scene`) de 640x480 pixels en y chargeant la vue `primary.fxml`
-   - indique au `Stage` que c'est la `Scene` qu'il faut utiliser (`setScene`)
-   - et enfin l'affiche à l'écran (`show`)
+    - crée une `Scene` (`new Scene`) de 640x480 pixels en y chargeant la vue `primary.fxml`
+    - indique au `Stage` que c'est la `Scene` qu'il faut utiliser (`setScene`)
+    - et enfin l'affiche à l'écran (`show`)
   - la méthode `loadFXML` charge une vue FXML depuis un nom de fichier passé en paramètre (`String fxml`) et renvoie la vue sous forme utilisable (`Parent`)
   - la méthode `setRoot` permet de passer à la vue donnée en paramètre (`String fxml`)
 
@@ -175,11 +175,11 @@ public class App extends Application {
 - Par exemple, on pourra avoir :
   - un conteneur `VBox` (vertical)
   - qui contiendra lui-même :
-   - un `Label` pour afficher un titre
-   - une `ListView` pour afficher une liste de clients
-   - un `TextField` (champ texte éditable) qui permettra de rechercher un client par son nom
-   - un conteneur `HBox` (horizontal)
-    - qui lui-même contiendra plusieurs boutons empilés horizontalement
+    - un `Label` pour afficher un titre
+    - une `ListView` pour afficher une liste de clients
+    - un `TextField` (champ texte éditable) qui permettra de rechercher un client par son nom
+    - un conteneur `HBox` (horizontal)
+      - qui lui-même contiendra plusieurs boutons empilés horizontalement
 
 ## Les conteneurs
 
@@ -515,7 +515,6 @@ Utilisateur no. 2 : Evrard (evrard@sample.fr)
   - `res.getString(1)` pour le nom
   - et `res.getString(2)` pour l'email
   - cela est légèrement plus performant, mais moins lisible
-- 
 
 ## Requête d'insertion
 
