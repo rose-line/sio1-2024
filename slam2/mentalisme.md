@@ -1,10 +1,10 @@
 # TP Mentalisme
 
-## Introduction
+## Desciption du projet
 
 Il s'agit d'élaborer, en POO, une simulation de la réalisation d'un tour de magie de type « mentalisme », c'est-à-dire dans lequel le magicien « devine » des informations qui concerne un spectateur.
 
-## Description de la solution
+## Description de la solution demandée
 
 Ce tour met en scène le magicien mentaliste, son assistant, et un spectateur. Voici son déroulement :
 
