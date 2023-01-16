@@ -9,3 +9,7 @@
 
 - [Mentalisme](mentalisme.md) (introduction à l'interaction entre objets)
 - [Guerre Marine](gm.md) (plus difficile)
+
+## AP2
+
+- [Atelier Professionnel 2](../ap2/README.md)
