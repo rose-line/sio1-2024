@@ -2,7 +2,7 @@
 
 ## Cahier des charges
 
-[Aller au cahier des charges](cahier_des_charges/cdc.md)
+[Aller au cahier des charges](cahier_des_charges/00_cdc.md)
 
 ## Contraintes de gestion de projet
 
