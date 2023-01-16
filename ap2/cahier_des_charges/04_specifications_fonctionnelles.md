@@ -10,7 +10,7 @@ Les besoins sont exprimés ici à l'aide des cas d'utilisation : le diagramme de
 
 ## Diagramme des cas d'utilisation
 
-![diagramme_ucs](/cahier_des_charges/diagramme_ucs.png)
+![diagramme_ucs](diagramme_ucs.png)
 
 ## Les fiches des cas d'utilisation
 
