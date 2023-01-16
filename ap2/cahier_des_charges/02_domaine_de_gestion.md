@@ -17,7 +17,7 @@ La gestion est la suivante :
 
 ## Processus à informatiser
 
-Actuellement, au plus tard le 20 de chaque mois, le service comptable adresse aux visiteurs la fiche de demande de remboursement pour le mois en cours ([PDF fiche d'état de frais engagés](/cahier_des_charges/fiche_etat_frais.pdf)). L'application devra permettre de produire automatiquement l'équivalent de ces fiches de manière à les mettre à disposition des visiteurs pour la saisie en ligne.
+Actuellement, au plus tard le 20 de chaque mois, le service comptable adresse aux visiteurs la fiche de demande de remboursement pour le mois en cours ([PDF fiche d'état de frais engagés](fiche_etat_frais.pdf)). L'application devra permettre de produire automatiquement l'équivalent de ces fiches de manière à les mettre à disposition des visiteurs pour la saisie en ligne.
 
 ### Saisie
 
@@ -52,8 +52,8 @@ La mise en paiement est faite au 20 du mois suivant la saisie par les visiteurs.
 
 L'**état** de la fiche de frais fera l'objet d'un suivi précis qui sera affiché lors de la consultation, selon le cycle suivant :
 
-![état_fiche](/cahier_des_charges/état_fiche_de_frais.png)
+![état_fiche](état_fiche_de_frais.png)
 
 Les visiteurs doivent pouvoir consulter sur l'année écoulée, pour chaque mois, le montant du remboursement effectué par le laboratoire et le nombre de prestations pris en compte.
 
-Actuellement, lorsque la fiche de frais arrive dans l'état « Remboursée », une fiche papier de remboursement de frais est éditée par le service comptabilité et remise au visiteur ([PDF fiche de remboursement de frais engagés](/cahier_des_charges/fiche_remboursement_frais.pdf)).
+Actuellement, lorsque la fiche de frais arrive dans l'état « Remboursée », une fiche papier de remboursement de frais est éditée par le service comptabilité et remise au visiteur ([PDF fiche de remboursement de frais engagés](fiche_remboursement_frais.pdf)).
