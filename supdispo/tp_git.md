@@ -93,6 +93,7 @@ Annexe :
 - Créer une nouvelle branche `fonctionnalite3`, se déplacer dessus, et modifier le fichier `fichier1.md` en y ajoutant une ligne de texte. Committer : "Modification fichier1 pour fonctionnalité 3"
   - Comment utiliser _Git Graph_ pour qu'il nous montre les différences entre l'ancienne version de `fichier1.md` et la version courante que l'on vient de committer ?
 - Repartir sur `master`, et modifier `fichier1.md` en y ajoutant aussi une ligne (différente de celle qu'on a ajoutée sur l'autre branche)
+- Ajouter à l'index et faire un commit
 - Tenter de fusionner la branche `fonctionnalite3` avec `master`
   - Que se passe-t-il et pourquoi ?
 - Lancer un `git status`
