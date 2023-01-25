@@ -46,13 +46,21 @@ Le système est maintenant prêt à accueillir un nouveau JDK.
 
 ## Visual Studio Code (VS Code)
 
-Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend tout ce dont on a besoin. Téléchargez et installez l'application suivante :
+Nous allons installer un _bundle_ (ensemble logiciel) pour Windows qui comprend tout ce dont on a besoin :
+
+- l'environnement de développement (IDE) Visual Studio Code ;
+- le JDK (_Java Development Kit_) pour programmer en Java ;
+- les extensions Java pour Visual Studio Code.
+
+Même si vous avez déjà Visual Studio Code installé sur votre machine, vous pouvez utiliser ce _bundle_ d'installation : il n'installera que ce que vous n'avez pas déjà sans affecter votre installation par ailleurs.
+
+Téléchargez et installez l'application suivante :
 
 - [pour Windows](https://aka.ms/vscode-java-installer-win)
 - [pour macOS](https://aka.ms/vscode-java-installer-mac)
-- sous Linux, il faut faire l'installation « manuellement » (JDK + VS Code + extensions Java pour VS Code)
+- pour Linux, il faut faire l'installation « manuellement » (JDK + VS Code + extensions Java pour VS Code) ; si vous êtes déjà utilisateur Linux, on considère que vous savez faire cela tout seul ;) (si problème, demandez de l'aide à l'enseignant)
 
-Pour terminer l'installation, il faut se **déconnecter du système et se reconnecter** (le redémarrage complet de la machine n'est cependant pas nécessaire).
+Vous laisserez toutes les options d'installation par défaut. Pour terminer l'installation, il faut se **déconnecter du système et se reconnecter** (le redémarrage complet de la machine n'est cependant pas nécessaire).
 
 NB : à la première ouverture de VS Code, on vous propose l'installation d'un pack linguistique pour le français. Il est déconseillé d'installer ce pack : l'utilisation d'un IDE en anglais vous apprendra les termes que vous retrouverez plus tard dans la documentation en anglais. Dans le cas général, en informatique, on doit être à l'aise avec la lecture de documentation en anglais et avec les logiciels en anglais, sans traduction automatique. Travailler directement en anglais vous épargnera de nombreux problèmes et vous facilitera globalement votre futur métier.
 
@@ -60,7 +68,10 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 
 - une fois reconnecté, ouvrez VS Code
 - appuyez sur `F1` (il se peut que vous deviez utiliser conjointement la touche `Fn` de votre laptop)
-- la **palette de commande** s'ouvre : c'est un outil très utile sous VS Code qui permet d'accéder à toutes les fonctionnalités par simple recherche
+  - ce racourci ouvre la **palette de commande**
+  - c'est un outil très utile sous VS Code qui permet d'accéder à toutes les fonctionnalités par simple recherche
+  - vous devez donc retenir ce raccourci et ouvrir la palette de commande dès que vous avez besoin de rechercher une fonctionnalité
+  - raccourci alternatif : `Ctrl+Shift+P` (la touche `Shift` est également appelée `Maj`, c'est la flèche au-dessus de `Ctrl`)
 - tapez `java`
 - localisez et lancez `Create Java Project` dans la liste qui s'affiche
 - sélectionnez `Maven` (si pas disponible, l'installation n'est pas correcte)
@@ -78,6 +89,7 @@ NB : à la première ouverture de VS Code, on vous propose l'installation d'un
 - au bout d'un moment, le processus va se stopper pour vous laisser indiquer le numéro de version de base de votre programme : laissé le numéro proposé (`1.0-SNAPSHOT`) en appuyant sur `Entrée` (il faudra peut-être donner le focus au terminal en cliquant dessus auparavant)
 - confirmez le résumé des informations données avec `Entrée`
 - le projet est créé ; cliquez sur `Open` dans la pop-up qui s'ouvre ; VS Code se relance et le nouveau projet est chargé
+  - le projet n'est pas créé (mention `BUILD FAILED` dans le terminal) ? Votre installation de Java est incorrecte ; consultez la section « Ça ne fonctionne pas ? » plus bas
 - Indiquez que vous « faites confiance » aux auteurs de des fichiers (il peut être prudent de ne pas « faire confiance » à du code quelconque téléchargé sur Internet : cela vous permettra d'examiner le programme sans pouvoir l'exécuter, car il pourrait contenir du code malicieux)
 - laissez toujours quelques secondes à VS Code pour charger le projet en arrière-plan (la pop-up en bas à droite doit se fermer)
 - **par la suite, lorsque vous ouvrirez de nouveau un projet existant (`File / Open Folder...`), veillez à toujours bien sélectionner le répertoire contenant le projet, et non pas un répertoire plus haut ou bien un répertoire plus bas** ; il faut toujours qu'un projet Java ouvert indique une architecture de répertoire comme ceci sur le panneau `Explorer` :
@@ -97,8 +109,8 @@ Notez bien que le répertoire `src`, par exemple, se trouve un niveau au-dessous
 ## Lancement du programme
 
 - Le programme se lance avec l'appui sur la touche `F5` du clavier (il se peut que vous deviez utiliser conjointement la touche `Fn` de votre laptop)
-- Au premier lancement, le parefeu de Windows vous demandera à quels réseaux doit avoir accès VS Code ; cochez les réseaux privés, mais pas les réseaux publics
-- Notez que le programme, tel qu'il est construit ici, ne fait absolument rien ; vérifiez juste que vous n'avez pas d'erreurs affichées dans le terminal
+- Au premier lancement, le pare-feu de Windows vous demandera à quels réseaux doit avoir accès VS Code ; cochez les réseaux privés, mais pas les réseaux publics
+- Notez que le programme, tel qu'il est construit ici, ne fait absolument rien ; vérifiez juste que, lorsque vous le lancez, aucune erreur ne s'affiche dans le terminal
 
 ## Configuration supplémentaire utile
 
@@ -134,7 +146,7 @@ Travailler avec un thème de couleurs qui nous plaît et qui soulage les yeux es
   - potentiellement à essayer pour d'autres problèmes inexpliqués (ça ne peut pas faire de mal de toute façon !)
 - Les erreurs persistent ? Utilisons les fichiers de *logs* pour en savoir plus :
   - dans les paramètres, recherchez `java.trace.server` et positionnez l'option sur `verbose`
-  - si c'est l'extension Java qui ne se lance pas correctement, examinez les logs `vscode-java` :
+  - puis, si c'est l'extension Java qui ne se lance pas correctement, examinez les logs `vscode-java` :
     - `F1` / `Toggle Developer Tools`
     - Ouvrez le panneau `Console` dans la fenêtre qui s'affiche
   - vous pouvez aussi examiner les logs du serveur de langage Java et les logs de l'extension Java :
