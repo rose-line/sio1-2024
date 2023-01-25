@@ -126,19 +126,18 @@ Travailler avec un thème de couleurs qui nous plaît et qui soulage les yeux es
 ## Ça ne fonctionne pas ?
 
 - La création de projet Maven échoue : vérifiez votre accès Internet
-- Les commandes Java ne fonctionnent pas : vérifiez que vous vous êtes bien déconnecté/reconnecté après l'installation de VS Code ou après toute modification de vos variables d'environnement
-- Le programme ne se lance pas :
-  - avez-vous des erreurs de compilation (du rouge) ? Il faut les corriger
-  - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ? Regardez bien quel niveau est ouvert
-  - essayez `F1` / `Java: Force Java Compilation` (indiquez `Full` ensuite)
-  - essayez de relancer VS Code (`F1` / `Reload Window`) ; parfois, cela résout le problème tout seul
-  - avez-vous les variables d'environnement `JAVA_HOME` et `PATH` correctement spécifiées (voir ci-dessous) ?
 - Vérifiez que vous disposez de la variable d'environnement `JAVA_HOME` qui pointe vers le répertoire du JDK installé (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\`
 - Vérifiez que votre variable utilisateur `PATH` contient le chemin vers le sous-répertoire `bin` du JDK (sinon, l'ajouter et déco/reco) ; par exemple, cela pourrait ressembler à : `C:\Program Files\Eclipse Adoptium\jdk-17.0.1.12-hotspot\bin` dans la liste des répertoires du `PATH`
 - Vérifiez que vous n'avez pas d'anciens `JAVA_HOME` ou des répertoires dans les variables `PATH` qui pointeraient vers des répertoires inexistants ou d'anciens JDK, supposés désinstallés ; normalement, vous devriez avoir :
   - une variable `JAVA_HOME` dans les variables d'environnement utilisateur (ou bien système)
   - le répertoire pointant vers votre JDK fraîchement installé dans la variable d'environnement utilisateur `PATH` (ou bien système)
 - N'oubliez pas de vous déconnecter/reconnecter après chaque modification
+- Le programme ne se lance pas :
+  - avez-vous des erreurs de compilation (soulignées en rougedans le code) ? Il faut les corriger.
+  - avez-vous bien ouvert le bon répertoire de projet comme spécifié ci-dessus ? Regardez bien quel niveau est ouvert.
+  - essayez `F1` / `Java: Force Java Compilation` (indiquez `Full` ensuite)
+  - essayez de relancer VS Code (`F1` / `Reload Window`) ; parfois, cela résout le problème tout seul
+  - avez-vous les variables d'environnement `JAVA_HOME` et `PATH` correctement spécifiées (voir ci-dessus) ?
 - Pour les erreurs ci-dessous, faites : `F1` / `Clean Java Language Server Wokspace` puis redémarrez VS Code comme proposé (*Restart and delete*)
   - les erreurs de code ne sont pas soulignées ;
   - au contraire il trouve des erreurs là où il n'y en a pas ;
