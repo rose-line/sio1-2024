@@ -8,7 +8,7 @@
 ## Tutos
 
 - [Petit retour sur l'encapsulation](tuto/tuto_encapsulation.md)
-- [ArrayList : les tableaux dynamiques](tuto_arraylist.md)
+- [ArrayList : les tableaux dynamiques](tuto/tuto_arraylist.md)
 
 ## TP
 
