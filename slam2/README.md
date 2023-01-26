@@ -7,8 +7,8 @@
 
 ## TP
 
-- [Mentalisme](mentalisme.md) (introduction à l'interaction entre objets)
-- [Guerre Marine](gm.md) (plus difficile)
+- [Mentalisme](tp/mentalisme.md) (introduction à l'interaction entre objets)
+- [Guerre Marine](tp/gm.md) (plus difficile)
 
 ## AP2
 
