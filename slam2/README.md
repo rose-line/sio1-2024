@@ -5,6 +5,11 @@
 - [01 Bases de la POO](pdf/jav_05.1_oop_01.pdf)
 - [02 Encapsulation](pdf/jav_05.2_enc_01.pdf)
 
+## Tutos
+
+- [Petit retour sur l'encapsulation](tuto/tuto_encapsulation.md)
+- [ArrayList : les tableaux dynamiques](tuto_arraylist.md)
+
 ## TP
 
 - [Mentalisme](tp/mentalisme.md) (introduction à l'interaction entre objets)
