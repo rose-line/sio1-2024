@@ -43,10 +43,6 @@ public class Joueur {
   public String getPseudo() {
     return pseudo;
   }
-
-  public String getAdresseIP() {
-    return adresseIP;
-  }
 }
 ```
 
@@ -137,6 +133,16 @@ La méthode `size` permet de connaître la taille du tableau dynamique :
 int taille = lesJoueurs.size();
 ```
 
+## Test de présence d'un élément
+
+La méthode `contains` permet de savoir si un élément donné est présent dans le tableau :
+
+```java
+if (lesJoueurs.contains(unCertainJoueur)) {
+  // unCertainJoueur est présent dans le tableau
+}
+```
+
 ## Cas particulier : types de base
 
 Si on a besoin de stocker des valeurs de types de base (entiers, flottants, caractères, booléens), on doit utiliser les classes correspondantes (`Integer`, `Double`, `Character`, `Boolean`) :
@@ -169,6 +175,12 @@ public class TestTableauDynamique {
     // On affiche tous les pseudos
     for (Joueur joueur : lesJoueurs) {
       System.out.println(joueur.getPseudo());
+    }
+
+    // On teste si un objet joueur particulier est présent
+    if (lesJoueurs.contains(unJoueur)) {
+      // ceci ne va pas s'afficher, le joueur Agagada n'est plus dans le tableau
+      System.out.println("Le joueur est présent");
     }
 
     int taille = lesJoueurs.size();
