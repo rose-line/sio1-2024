@@ -12,9 +12,9 @@
 
 ## TP
 
-- [Mentalisme - introduction à l'interaction entre objets](tp/mentalisme.md)
-- [IMC - Développement d'une classe simple de calcul d'Indice de Masse Corporelle](tp/imc.md)
-- [Guerre Marine - Plus difficile](tp/gm.md)
+- [Mentalisme](tp/mentalisme.md) - introduction à l'interaction entre objets
+- [IMC](tp/imc.md) - Développement d'une classe simple de calcul d'Indice de Masse Corporelle
+- [Guerre Marine](tp/gm.md) - Plus difficile
 
 ## AP2
 
