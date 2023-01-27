@@ -154,7 +154,7 @@ Client Shoto de Cambrai
     Compte courant : 1000.0 euros
     Compte épargne : 2000.0 euros
 
-Cliente Kioka de Cambrai
+Cliente Kioka de Lille
     Compte courant : 3000.0 euros
     Compte épargne : 4000.0 euros
 ```
