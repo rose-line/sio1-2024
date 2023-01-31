@@ -9,7 +9,43 @@ Le but de cet exercice est de simuler une tirelire dans laquelle on stocke et re
 Créez un nouveau projet Java (_tirelire_) et faire en sorte que la méthode _main_ de la classe principale soit comme il suit :
 
 ```java
+// Méthode main initiale
+// Vous ne devez pas modifier cette méthode
+public static void main(String[] args) {
 
+  Tirelire monCochon = new Tirelire();
+
+  monCochon.vider();
+  monCochon.secouer();
+  System.out.println(monCochon.getCaractéristiques());
+  monCochon.sortir(50.0);
+  monCochon.secouer();
+  System.out.println(monCochon.getCaractéristiques());
+  monCochon.ajouter(500.0);
+  monCochon.secouer();
+  System.out.println(monCochon.getCaractéristiques());
+  monCochon.sortir(40.0);
+  monCochon.sortir(15.0);
+  System.out.println(monCochon.getCaractéristiques());
+
+  double budgetVacances;
+  Scanner clavier = new Scanner(System.in);
+
+  System.out.print("Indiquez le budget de vos vacances : ");
+  budgetVacances = clavier.nextDouble();
+
+  double soldeAprèsVacances = monCochon.soldeSiOnSort(budgetVacances);
+
+  if (soldeAprèsVacances >= 0) {
+    System.out.println("Vous êtes assez riche pour partir en vacances !");
+    System.out.println("Il vous restera " + soldeAprèsVacances + " euros à la rentrée.");
+    monCochon.sortir(budgetVacances);
+  } else {
+    double manque = -soldeAprèsVacances;
+    System.out.println("Il vous manque " + manque + " euros pour partir en vacances...");
+  }
+  clavier.close();
+}
 ```
 
 Le code fourni crée une tirelire et lui fait subir diverses manipulations (la vider, la secouer, en afficher le contenu, etc.). Ce programme demande aussi à l'utilisateur quel budget il aimerait consacrer à ses vacances. Si la tirelire contient suffisamment d'argent, il indique combien d'argent il resterait dans la tirelire après les vacances. Dans la cas contraire, il indique quel montant manque pour partir en vacances avec le budget souhaité.
