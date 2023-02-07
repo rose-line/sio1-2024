@@ -4,4 +4,4 @@
 
 - [Learn Git Branching](https://learngitbranching.js.org/?locale=fr_FR)
 - [TP Utilisation de Git en CLI](tp-git/README.md)
-- [Résumé des commandes usuelles Git](commandes_git.md)
+- [Résumé des commandes usuelles Git](tp-git/commandes_git.md)
