@@ -48,8 +48,8 @@ Vous utiliserez ce [résumé des commandes Git les plus utilisées](commandes_gi
 
 ## Travail à faire
 
-- [Partie 1](part01.md) : Création d'un dépôt et _commits_
-- [Partie 2](part02.md) : Gestion de branches
-- [Partie 3](part03.md) : Fusionner des branches (_merge_)
-- [Partie 4](part04.md) : Travailler avec un dépôt distant (_remote_)
+- [Partie 1](part01.md) : Création d'un dépôt et _commits_ ([correction](part01_corr.md))
+- [Partie 2](part02.md) : Gestion de branches ([correction](part02_corr.md))
+- [Partie 3](part03.md) : Fusionner des branches (_merge_) ([correction](part03_corr.md))
+- [Partie 4](part04.md) : Travailler avec un dépôt distant (_remote_) ([correction](part04_corr.md))
 - [Partie 5](part05.md) : Travailler en collaboration avec GitHub
