@@ -233,7 +233,7 @@ $ git log --oneline --decorate --graph --all
 
 - Noter la « déviation » entre les deux branches, à partir de la branche `master` (schématisée sous forme de traits)
 
-> Les deux branches sont en effet basée sur le même _commit_ (`e4617ae`), sur lequel pointe encore pour l'instant la branche `master`. L'historique part du bas vers le haute, comme pour un `git log` classique. Les étoiles représentent ici des _commits_, et les barres verticales l'évolution des branches. On voit que `fonctionnalite2` a 1 _commit_ de plus que `master` tandis que `fonctionnalite1` a 2 _commits_ de plus (mais pas les mêmes).
+> Les deux branches sont en effet basées sur le même _commit_ (`e4617ae`), sur lequel pointe encore pour l'instant la branche `master`. L'historique part du bas vers le haut, comme pour un `git log` classique. Les étoiles représentent ici des _commits_, et les barres verticales l'évolution des branches. On voit que `fonctionnalite2` a 1 _commit_ de plus que `master` tandis que `fonctionnalite1` a 2 _commits_ de plus (mais pas les mêmes).
 
 - l'option `--all` permet de visualiser toutes les branches, pas seulement celle sur laquelle on est
 - l'option `--oneline` affiche les _commits_ sur une seule ligne
@@ -242,7 +242,7 @@ $ git log --oneline --decorate --graph --all
 
 - Installer l'extension VS Code _Git Graph_ et visualiser le graphe actuel des _commits_ à l'aide de cette extension
 
-> Il faut utiliser la palette de commande (Ctrl+Shift+P) et trouver la commande `Git Graph: View Git Graph` pour ouvrir l'onglet _Git Graph_.
+> Une fois l'extension installée, il faut utiliser la palette de commande (Ctrl+Shift+P) et trouver la commande `Git Graph: View Git Graph` pour ouvrir l'onglet _Git Graph_.
 
 <br>
 
