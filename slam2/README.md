@@ -12,10 +12,10 @@
 
 ## TP
 
-- [Mentalisme](tp/mentalisme.md) - Introduction à l'interaction entre objets ([correction](https://github.com/rose-line/sio-2024-tp-mentalisme))
-- [IMC](tp/imc.md) - Développement d'une classe simple de calcul d'Indice de Masse Corporelle ([correction](https://github.com/rose-line/sio-2024-tp-imc))
-- [Tirelire](tp/tirelire.md) ([correction](https://github.com/rose-line/sio-2024-tp-tirelire))
-- [Guerre Marine](tp/gm.md) - Plus difficile ([correction](https://github.com/rose-line/sio-2024-tp-guerre-marine))
+- [Mentalisme](tp/mentalisme.md) - Introduction à l'interaction entre objets ([correction](https://github.com/rose-line/sio2024-tp-mentalisme))
+- [IMC](tp/imc.md) - Développement d'une classe simple de calcul d'Indice de Masse Corporelle ([correction](https://github.com/rose-line/sio2024-tp-imc))
+- [Tirelire](tp/tirelire.md) ([correction](https://github.com/rose-line/sio2024-tp-tirelire))
+- [Guerre Marine](tp/gm.md) - Plus difficile ([correction](https://github.com/rose-line/sio2024-tp-guerre-marine))
 
 ## AP2
 
