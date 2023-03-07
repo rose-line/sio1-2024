@@ -9,4 +9,4 @@
 ## JavaScript
 
 - [TP Morpion - support de cours](https://github.com/rose-line/sio2024-tp-js-morp)
-- [TP Chifoumi - TP dirigé (intro au DOM)](https://github.com/rose-line/sio2024-tp-js-chifoumi)
+- [TP Chifoumi - intro au DOM (TP dirigé)](https://github.com/rose-line/sio2024-tp-js-chifoumi)
