@@ -11,3 +11,7 @@
 ## Devoirs
 
 - [INT01 (22/09/2022) Attaques et vulnérabilités](pdf/B3_S1_INT01_20220922.pdf)
+
+## Labo
+
+- [Procédure d'installation](labo.md) du labo
