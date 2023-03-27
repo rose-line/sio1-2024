@@ -26,3 +26,7 @@
   - exemple de mauvaise pratique à proscrire : travailler chacun sur un bout du rapport et se passer les fichiers en espérant qu'une version contenant tout dans le bon ordre et sans doublon émerge facilement...
 - Tous les choix d'outils et de méthodologies devront être motivés et justifiés dans vos rapports
 - La notation prendra en compte (outre vos productions techniques et votre documentation) le professionnalisme dont vous ferez preuve durant ce module ; les absences, notamment, seront directement pénalisées (toute absence non justifiée **directement auprès de l'enseignant** enlève automatiquement un point à la note finale de l'étudiant)
+
+## Rapport de projet
+
+[Constitution du rapport de projet](rapport.md)
