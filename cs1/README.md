@@ -15,3 +15,4 @@
 ## Labo
 
 - [Procédure d'installation](labo.md) du labo
+- [Mots de passe hachés](passwd_hashed)
