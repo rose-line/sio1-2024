@@ -11,4 +11,4 @@
 - [TP Morpion - support de cours](https://github.com/rose-line/sio2024-tp-js-morp)
 - [TP Chifoumi - intro au Document Objet Model (TP dirigé)](https://github.com/rose-line/sio2024-tp-js-chifoumi)
 - [TP _Shooter_](tp-js/shooter.md)
-- [TP API web RESTful avec Node.js et Express.js](https://github.com/rose-line/sio2024-tp-js-restful-api-express)
+- [TP API web RESTful avec Node.js et Express.js (TP dirigé)](https://github.com/rose-line/sio2024-tp-js-restful-api-express)
