@@ -13,6 +13,7 @@
 ### Semestre 2
 
 - [Authentification par mots de passe](pdf/cs2_02_password_auth.pdf)
+- [Étude de cas Vins de France](pdf/edc_vdf.pdf)
 
 ## Devoirs
 
