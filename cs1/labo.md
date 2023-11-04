@@ -67,7 +67,7 @@ $ ping www.google.com
 
 ### _Web Security Dojo_
 
-_Web Security Dojo_ est un bundle (ensemble) d'applications web pour la mise en évidence de vulnérabilités. Il contient notamment les applications _Juice Shop_ et _WebGoat_ développées par la fondation _OWASP_, ainsi que _DVWA_ (_Damn Vulnerable Web Application_).
+Il nous faut des applications vulnérables à attaquer. Nous allons utiliser _Web Security Dojo_. C'est un _bundle_ (ensemble) d'applications web pour la mise en évidence de vulnérabilités. Il contient notamment les applications _Juice Shop_ et _WebGoat_ développées par la fondation _OWASP_, ainsi que _DVWA_ (_Damn Vulnerable Web Application_). Toutes ces applications web sont conçues pour être des « nids à vulnérabilités » et feront d'excellentes cibles.
 
 - Téléchargez [l'image `.ova`](https://sourceforge.net/projects/websecuritydojo/)
 
