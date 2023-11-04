@@ -83,7 +83,9 @@ Il nous faut des applications vulnérables à attaquer. Nous allons utiliser _We
 
 - Identifiants de connexion par défaut : `dojo/dojo`
 
-- Une fois la VM lancée, cliquez sur le bouton en haut à gauche pour afficher les applications disponibles
+Pour lancer _DVWA_ :
+
+- Cliquez sur le bouton en haut à gauche pour afficher les applications disponibles
 
 - Cliquez sur _Targets_ pour afficher la liste des applications vulnérables
 
@@ -91,15 +93,19 @@ Il nous faut des applications vulnérables à attaquer. Nous allons utiliser _We
 
 - Cliquez sur _DVWA_ (notez les identifiants donnés) et connectez-vous
 
+Pour lancer _Juice Shop_ :
+
 - Retournez dans la liste des _Targets_ et cliquez sur *Juice Shop Start* ; patientez (cela peut prendre plusieurs minutes la première fois), le navigateur va ouvrir l'application _Juice Shop_
 
-- Procédez de même pour _WebGoat NG Start_ (de même, il faut patienter jusqu'à l'ouverture par le navigateur) ; les identifiants de _WebGoat_ sont donnés sur la page d'accueil qui s'ouvre ; inutile de se connecter pour l'instant
+Pour lancer _WebGoat_ :
 
-- On va accéder à ces applications depuis la machine hôte plutôt que d'utiliser la VM, ce sera plus confortable
+- Procédez de même pour trouver le raccourci _WebGoat NG Start_ (de même, il faut patienter jusqu'à l'ouverture par le navigateur)
 
-- Récupérez les informations suivantes :
+- Les identifiants de _WebGoat_ sont donnés sur la page d'accueil qui s'ouvre
 
-  - IP de votre machine _Web Security Dojo_
-  - ports d'accès aux applications _DVWA_, _Juice Shop_ et _WebGoat_ (indiqués dans la barre d'adresse du navigateur)
+On va accéder à ces applications depuis la machine hôte plutôt que d'utiliser la VM, ce sera plus confortable. Récupérez les informations suivantes :
+
+- IP de votre machine _Web Security Dojo_
+- ports d'accès aux applications _DVWA_, _Juice Shop_ et _WebGoat_ (indiqués dans la barre d'adresse du navigateur)
 
 - En utilisant ces informations, sous votre machine hôte, lancez votre navigateur et ouvrez les pages correspondantes aux trois applications web (utilisez les chemins `/dvwa` pour _DVWA_ et `/WebGoat` pour _WebGoat_)
