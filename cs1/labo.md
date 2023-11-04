@@ -102,4 +102,4 @@ _Web Security Dojo_ est un bundle (ensemble) d'applications web pour la mise en 
   - IP de votre machine _Web Security Dojo_
   - ports d'accès aux applications _DVWA_, _Juice Shop_ et _WebGoat_ (indiqués dans la barre d'adresse du navigateur)
 
-- En utilisant ces informations, sous votre machine hôte, lancez votre navigateur et ouvrez les pages correspondantes aux trois applications web (utilisez `/dvwa` pour _DVWA_ et `/WebGoat` pour _WebGoat_)
+- En utilisant ces informations, sous votre machine hôte, lancez votre navigateur et ouvrez les pages correspondantes aux trois applications web (utilisez les chemins `/dvwa` pour _DVWA_ et `/WebGoat` pour _WebGoat_)
